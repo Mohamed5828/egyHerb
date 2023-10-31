@@ -1,0 +1,115 @@
+@import "../sassStyling/colors";
+@import "../sassStyling/variables";
+@import "../sassStyling/breakpoints";
+
+.allItems-container {
+  @extend %container;
+  background-color: $backgroundPrimary;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  // text-align: center;
+}
+.post-item {
+  padding: $base-padding;
+  margin: $base-margin;
+  width: 100%;
+  border-bottom: $base-border-thickness solid $borderColor;
+
+  display: flex;
+  justify-content: space-between;
+}
+.main-padding {
+  padding: $base-padding;
+  display: flex;
+  align-items: center;
+}
+.allpg-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.form-delete {
+  display: inline;
+}
+.form-edit {
+  display: inline;
+}
+.all-description {
+  align-self: center;
+  display: inline-block;
+  margin-left: $base-margin * 1.5;
+}
+
+@include xs {
+  .all-img {
+    display: inline-block;
+    width: 120px;
+    height: 100px;
+  }
+  .allpg-btn {
+    display: none;
+  }
+}
+@include sm {
+  .all-img {
+    display: inline-block;
+    width: 150px;
+    height: 120px;
+  }
+  .allpg-btn {
+    display: flex;
+  }
+}
+@include md {
+  .all-img {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+  }
+  .allpg-btn {
+    display: flex;
+  }
+}
+@include lg {
+  .all-img {
+    display: inline-block;
+    width: 350px;
+    height: 300px;
+  }
+  .allpg-btn {
+    display: flex;
+  }
+}
+@include xl {
+  .all-img {
+    display: inline-block;
+    width: 350px;
+    height: 300px;
+  }
+  .allpg-btn {
+    display: flex;
+  }
+}
+
+//font reduce
+@include xs {
+  .all-description {
+    font-size: $base-font-size * 0.7;
+  }
+}
+@include sm {
+  .all-description {
+    font-size: $base-font-size * 0.75;
+  }
+}
+@include md {
+  .all-description {
+    font-size: $base-font-size;
+  }
+}
+@include lg {
+  .all-description {
+    font-size: $base-font-size;
+  }
+}

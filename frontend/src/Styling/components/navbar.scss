@@ -1,0 +1,100 @@
+@import "../sassStyling/colors";
+@import "../sassStyling/variables";
+@import "../sassStyling/breakpoints";
+// @import "../sassStyling/gridSystem";
+.navbar {
+  @extend %flex-layout;
+  padding: $base-padding * 1.5;
+  box-shadow: $base-box-shadow;
+  background-color: $navbarBackground;
+  position: fixed;
+  z-index: 10;
+
+  .site-title {
+    font-size: $large-font-size;
+  }
+  .container {
+    @extend %flex-layout;
+  }
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.navbar li {
+  list-style: none;
+  display: inline-block;
+}
+.navbar li a {
+  text-decoration: none;
+  margin: $base-margin;
+  transition: $main-transition;
+  color: $navbarText;
+}
+.navbar li a :hover {
+  opacity: 0.8;
+}
+
+.search-bar {
+  @extend %input-field;
+  height: 4vh;
+}
+
+.navbar-menu {
+  display: none;
+}
+
+@include xs {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-menu {
+    display: inline-block;
+  }
+}
+@include sm {
+  .navbar-links {
+    display: inline-block;
+  }
+  .navbar-menu {
+    display: none;
+  }
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #f1f1f1;
+  padding: $base-padding;
+  border: $base-border-thickness solid #ccc;
+  margin-top: $base-margin;
+  font-size: $large-font-size;
+  color: $text;
+  z-index: 4;
+}
+
+.sidebar-content {
+  height: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: #000;
+}
+
+.nav-search {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}

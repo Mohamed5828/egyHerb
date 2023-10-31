@@ -1,0 +1,30 @@
+--how run the code everyday at a certain time (node-cron) ?
+--write a better scrapper to catch the prices
+--use proxy in case of ip block (proxy server/vpn)
+--spyder
+--frontend side of the project
+--how to store data in sql server
+--how to run certain code only one time at first
+-------------------------------------------------------------------
+--dimensions and expire
+--search for the chatgpt answer
+--pagintaions
+--array of sites should be stored in the parent class
+--for the whole database if the item has no description add its url to an array and run
+the cluster for this array
+-------------------------------------------------------------------
+In Puppeteer, occasional inconsistencies or unexpected behavior can occur due to a variety of reasons. Here are a few potential causes and troubleshooting steps to help you address such issues:
+
+Page Load and Timing: Puppeteer interacts with web pages asynchronously, and it's important to ensure that the page has finished loading before performing actions. You can use page.waitForNavigation() or page.waitForSelector() to wait for specific events or elements to be present on the page before proceeding.
+
+Network Conditions: Network connectivity or server responsiveness can impact Puppeteer's behavior. To mitigate this, you can use page.waitForTimeout() to introduce delays between actions, allowing more time for the page to load or respond.
+
+Headless vs. Headful Mode: Puppeteer can run in headless mode (without a visible browser window) or headful mode (with a visible browser window). Some websites may behave differently depending on the mode. You can try running Puppeteer in headful mode ({ headless: false }) to observe the page behavior and debug any issues.
+
+Page Structure Variations: Web pages often have dynamic or changing structures. If the structure of the page you're scraping varies, it can lead to inconsistent results. Make sure to account for potential variations in the page structure by using robust selectors or adapting your code to handle different scenarios.
+
+Asynchronous Actions: Puppeteer allows you to perform actions such as clicking buttons or filling forms. If your code includes multiple asynchronous actions, make sure to properly await each action's completion before proceeding to the next one. This ensures that actions are executed in the desired order.
+
+Error Handling: It's important to handle errors and exceptions gracefully in Puppeteer. Use try-catch blocks around critical sections of your code to catch and handle any errors that may occur during execution. This helps prevent your script from crashing and allows you to handle unexpected situations more effectively.
+
+By considering these factors and implementing appropriate error handling and wait strategies, you can improve the consistency and reliability of your Puppeteer scripts.
