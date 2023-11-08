@@ -15,6 +15,7 @@ import Pagination from "./Pagination";
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
   { name: "A - Z", href: "#", current: false },
+  { name: "Highest Rated", href: "#", current: false },
   { name: "Price: Low to High", href: "#", current: false },
   { name: "Price: High to Low", href: "#", current: false },
 ];
@@ -27,15 +28,6 @@ const subCategories = [
   { name: "Vitamin C", href: "#" },
 ];
 const filters = [
-  {
-    id: "Gender",
-    name: "Gender",
-    options: [
-      { value: "Men", label: "Men", checked: false },
-      { value: "Women", label: "Women", checked: true },
-      { value: "Netrual", label: "Netrual", checked: false },
-    ],
-  },
   // {
   //   id: "category",
   //   name: "Category",

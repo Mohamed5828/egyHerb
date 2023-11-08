@@ -1,5 +1,5 @@
-const allBrandsSelector =
-  "#item-brandsaz > div > div:nth-child(1) > ul > li > a";
+const allBrandsSelector = "#item-brandsaz > div > div > ul > li > a";
+("");
 const langChangeBtn =
   "#universal-branded-header > div.iherb-header.iherb-header-layout.stackable-base > div.universal-header.iherb-universal > div > div.universal-header-end > div.iherb-header-ccl > div.selected-country-wrapper > div.country-select";
 const modal =

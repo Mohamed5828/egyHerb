@@ -10,14 +10,14 @@ DROP TABLE IF EXISTS `cart_items`;
 DROP TABLE IF EXISTS `payment_details`;
 DROP TABLE IF EXISTS `order_items`;
 DROP TABLE IF EXISTS `products`;
-DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `brand`;
 DROP TABLE IF EXISTS `order_details`;
 DROP TABLE IF EXISTS `user`;
 
-CREATE TABLE `category` (
+CREATE TABLE `brand` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) ,
-  `category_url` VARCHAR(255) ,
+  `brand_url` VARCHAR(255) ,
   PRIMARY KEY (`id`)
 );
 
@@ -36,16 +36,16 @@ CREATE TABLE `products` (
   `price_us` DECIMAL  NULL,
   `dimensions` VARCHAR(45) DEFAULT  NULL,
   `expiry_date` VARCHAR(45) DEFAULT  NULL,
-  `category_id` INT ,
+  `brand_id` INT ,
   `modified_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+  FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`)
 );
 
 
 --
--- Table structure for table `category`	
+-- Table structure for table `brand`	
 
 
 CREATE TABLE `user` (

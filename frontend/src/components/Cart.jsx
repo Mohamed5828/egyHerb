@@ -110,9 +110,49 @@ export default function Cart() {
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      strokeWidth={1.5}
+                                      stroke="currentColor"
+                                      className="w-6 h-6 hover:text-gray-500"
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        product.quantity += 1;
+                                        console.log(product.quantity);
+                                      }}
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="font-medium text-black-800 "
+                                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                                      />
+                                    </svg>
+
                                     <p className="text-gray-500">
                                       Qty {product.quantity}
                                     </p>
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      fill="none"
+                                      viewBox="0 0 24 24"
+                                      strokeWidth={1.5}
+                                      stroke="currentColor"
+                                      className="w-6 h-6 hover:text-gray-500"
+                                      onClick={(e) => {
+                                        e.preventDefault();
+                                        product.quantity -= 1;
+                                      }}
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                        className="font-medium text-black-800 "
+                                      />
+                                    </svg>
 
                                     <div className="flex">
                                       <button

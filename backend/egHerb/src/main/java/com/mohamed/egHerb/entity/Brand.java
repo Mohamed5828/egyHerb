@@ -2,8 +2,8 @@ package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "brand")
+public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -12,14 +12,14 @@ public class Category {
     @Column(name="name")
     private String name;
 
-    @Column(name="category_url")
-    private String categoryUrl;
+    @Column(name="brand_url")
+    private String brandUrl;
 
-    public Category(){}
+    public Brand(){}
 
-    public Category(String name, String categoryUrl) {
+    public Brand(String name, String brandUrl) {
         this.name = name;
-        this.categoryUrl = categoryUrl;
+        this.brandUrl = brandUrl;
 
     }
 
@@ -39,12 +39,12 @@ public class Category {
         this.name = name;
     }
 
-    public String getCategoryUrl() {
-        return categoryUrl;
+    public String getBrandUrl() {
+        return brandUrl;
     }
 
-    public void setCategoryUrl(String categoryUrl) {
-        this.categoryUrl = categoryUrl;
+    public void setBrandUrl(String brandUrl) {
+        this.brandUrl = brandUrl;
     }
 
 
@@ -54,7 +54,7 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", categoryUrl='" + categoryUrl + '\'' +
+                ", brandUrl='" + brandUrl + '\'' +
                 '}';
     }
 }

@@ -46,7 +46,7 @@ function formObjectData(jsonData, URLS, names) {
   for (let i = 0; i < names.length; i++) {
     const objData = {
       name: names[i],
-      categoryUrl: URLS[i],
+      brandUrl: URLS[i],
     };
     jsonData.push(objData);
   }
@@ -59,7 +59,7 @@ async function postProduct(product, databaseUrl) {
     // Handle the response if needed
     // console.log(response.data);
   } catch (error) {
-    console.error(`Error posting product: ${product.title}`);
+    console.error(`Error posting product: ${product.name}`);
     console.error(error);
   }
 }

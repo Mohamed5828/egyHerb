@@ -19,7 +19,7 @@ const {
 let firstRun;
 let brandUrlsData = [];
 let brandNamesData = [];
-let dbServer = "http://localhost:8080/categories";
+let dbServer = "http://localhost:8080/brands";
 const brandUrl = "https://www.iherb.com/catalog/brandsaz";
 const proxyServer = "15.204.161.192:1855";
 async function start() {
@@ -66,15 +66,15 @@ async function start() {
   // console.log(brandUrlsData);
   let lessArray = [];
   formObjectData(lessArray, brandUrlsData.flat(), brandNamesData.flat());
-  lessArray.sort();
-  async function postProducts() {
-    for (const x of lessArray) {
-      await postProduct(x, dbServer);
-    }
-  }
+  // async function postProducts() {
+  //   for (const x of lessArray) {
+  //     await postProduct(x, dbServer);
+  //   }
+  // }
 
-  postProducts();
-  // await fs.writeFile("data.json", jsonData);
+  // postProducts();
+  let jsonData = JSON.stringify(lessArray);
+  await fs.writeFile("data.json", jsonData);
   await browser.close();
 }
 
