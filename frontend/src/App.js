@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DisplayContainer from "./components/DisplayContainer";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<DisplayContainer />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/registration" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,9 @@
 package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+
+@Getter
 @Entity
 @Table(name = "brand")
 public class Brand {
@@ -23,24 +26,12 @@ public class Brand {
 
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getBrandUrl() {
-        return brandUrl;
     }
 
     public void setBrandUrl(String brandUrl) {

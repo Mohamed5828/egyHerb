@@ -1,5 +1,6 @@
 package com.mohamed.egHerb.controllers;
 
+import com.mohamed.egHerb.appUser.AppUserRole;
 import com.mohamed.egHerb.auth.AuthenticationRequest;
 import com.mohamed.egHerb.auth.AuthenticationResponse;
 import com.mohamed.egHerb.auth.AuthenticationService;
@@ -21,7 +22,12 @@ public class AuthenticationController {
     public ResponseEntity <AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ){
-        return ResponseEntity.ok(service.register(request));
+        AppUserRole userRole = request.getAppUserRole();
+        if (userRole == null) {
+            // Set a default role of USER if getAppUserRole() returns null
+            userRole = AppUserRole.USER;
+        }
+        return ResponseEntity.ok(service.register(request ,userRole));
     }
 
     @PostMapping("/authenticate")
