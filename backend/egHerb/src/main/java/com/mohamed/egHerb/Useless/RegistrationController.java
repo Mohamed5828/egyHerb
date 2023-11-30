@@ -1,7 +1,7 @@
 package com.mohamed.egHerb.controllers;
 
 import com.mohamed.egHerb.registration.RegistrationRequest;
-import com.mohamed.egHerb.registration.RegistrationService;
+import com.mohamed.egHerb.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

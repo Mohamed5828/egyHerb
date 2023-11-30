@@ -1,6 +1,6 @@
 package com.mohamed.egHerb.auth;
 
-import com.mohamed.egHerb.appUser.AppUserRole;
+import com.mohamed.egHerb.entity.AppUserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

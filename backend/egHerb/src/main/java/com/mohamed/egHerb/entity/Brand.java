@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.entity;
+package com.mohamed.egHerb.brand;
 
 import jakarta.persistence.*;
 import lombok.Getter;

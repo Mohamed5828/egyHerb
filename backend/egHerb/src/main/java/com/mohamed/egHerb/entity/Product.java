@@ -1,10 +1,12 @@
-package com.mohamed.egHerb.entity;
+package com.mohamed.egHerb.product;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+@Getter
 @Entity
 @Table(name = "products")
 public class Product {
@@ -78,120 +80,60 @@ public class Product {
         this.modifiedAt = modifiedAt;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getProductUrl() {
-        return productUrl;
     }
 
     public void setProductUrl(String productUrl) {
         this.productUrl = productUrl;
     }
 
-    public String getFirstImage() {
-        return firstImage;
-    }
-
     public void setFirstImage(String firstImage) {
         this.firstImage = firstImage;
-    }
-
-    public String getSecondImage() {
-        return secondImage;
     }
 
     public void setSecondImage(String secondImage) {
         this.secondImage = secondImage;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public int getPopularity() {
-        return popularity;
     }
 
     public void setPopularity(int popularity) {
         this.popularity = popularity;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getWeight() {
-        return weight;
     }
 
     public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public String getQuantity() {
-        return quantity;
-    }
-
     public void setQuantity(String quantity) {
         this.quantity = quantity;
-    }
-
-    public BigDecimal  getPriceUs() {
-        return priceUs;
     }
 
     public void setPriceUs(BigDecimal  priceUs) {
         this.priceUs = priceUs;
     }
 
-    public BigDecimal  getPriceEg() {
-        return priceEg;
-    }
-
     public void setPriceEg(BigDecimal priceEg) {
         this.priceEg = priceEg;
-    }
-
-    public String getDimensions() {
-        return dimensions;
     }
 
     public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
     }
 
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
     public void setExpiryDate(String expiryDate) {
         this.expiryDate = expiryDate;
     }
 
-    public int getCategoryId() {
-        return categoryId;
-    }
-
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
     }
 
     public void setModifiedAt(Timestamp modifiedAt) {

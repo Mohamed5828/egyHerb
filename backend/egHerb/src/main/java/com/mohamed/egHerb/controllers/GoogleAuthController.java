@@ -1,9 +1,9 @@
 package com.mohamed.egHerb.controllers;
 
-import com.mohamed.egHerb.appUser.AppUserService;
-import com.mohamed.egHerb.auth.AuthenticationResponse;
-import com.mohamed.egHerb.auth.CustomOAuth2UserService;
-import com.mohamed.egHerb.security.config.JwtService;
+import com.mohamed.egHerb.service.AppUserService;
+import com.mohamed.egHerb.dto.AuthenticationResponse;
+import com.mohamed.egHerb.service.CustomOAuth2UserService;
+import com.mohamed.egHerb.service.JwtService;
 import com.nimbusds.jose.JWSObject;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;

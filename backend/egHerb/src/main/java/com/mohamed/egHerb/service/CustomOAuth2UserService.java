@@ -1,8 +1,8 @@
 package com.mohamed.egHerb.auth;
 
-import com.mohamed.egHerb.appUser.AppUser;
-import com.mohamed.egHerb.appUser.AppUserRole;
-import com.mohamed.egHerb.appUser.UserRepository;
+import com.mohamed.egHerb.entity.AppUser;
+import com.mohamed.egHerb.entity.AppUserRole;
+import com.mohamed.egHerb.dao.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
