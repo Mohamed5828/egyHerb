@@ -1,7 +1,5 @@
 package com.mohamed.egHerb.security.config;
 
-import com.mohamed.egHerb.auth.CustomOAuth2UserService;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,10 +7,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
@@ -26,7 +22,7 @@ public class SecurityConfiguration {
 //    private final LogoutHandler logoutHandler;
 
     private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**","api/auth/google",
-            "/v2/api-docs",
+            "/v2/api-docs","/create-payment-intent"
     };
 
     @Bean

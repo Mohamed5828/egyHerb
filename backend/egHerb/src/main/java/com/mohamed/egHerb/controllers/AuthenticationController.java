@@ -1,10 +1,10 @@
 package com.mohamed.egHerb.controllers;
 
-import com.mohamed.egHerb.appUser.AppUserRole;
-import com.mohamed.egHerb.auth.AuthenticationRequest;
-import com.mohamed.egHerb.auth.AuthenticationResponse;
-import com.mohamed.egHerb.auth.AuthenticationService;
-import com.mohamed.egHerb.auth.RegisterRequest;
+import com.mohamed.egHerb.entity.AppUserRole;
+import com.mohamed.egHerb.dto.AuthenticationRequest;
+import com.mohamed.egHerb.dto.AuthenticationResponse;
+import com.mohamed.egHerb.service.AuthenticationService;
+import com.mohamed.egHerb.dto.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.auth;
+package com.mohamed.egHerb.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

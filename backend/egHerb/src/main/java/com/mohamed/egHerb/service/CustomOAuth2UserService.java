@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.auth;
+package com.mohamed.egHerb.service;
 
 import com.mohamed.egHerb.entity.AppUser;
 import com.mohamed.egHerb.entity.AppUserRole;

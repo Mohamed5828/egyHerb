@@ -1,11 +1,14 @@
-package com.mohamed.egHerb.security.config;
+package com.mohamed.egHerb.service;
 
+import com.mohamed.egHerb.entity.AppUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +33,9 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails) {
         try {
-            return generateToken(new HashMap<>(), userDetails);
+            Map<String , Object> claims = new HashMap<>();
+            claims.put("userId" ,((AppUser) userDetails).getId());
+            return generateToken(claims, userDetails);
         } catch (Exception e) {
             throw new RuntimeException("Error generating token: " + e.getMessage(), e);
         }
@@ -83,6 +88,18 @@ public class JwtService {
         } catch (Exception e) {
             throw new RuntimeException("Error extracting expiration from token: " + e.getMessage(), e);
         }
+    }
+
+    public int extractUserIdFromToken(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null){
+            Object principal = authentication.getPrincipal();
+            if(principal instanceof UserDetails){
+                Claims claims = extractAllClaims(((UserDetails) principal).getUsername());
+                return (int) claims.get("userId");
+            }
+        }
+        return 0;
     }
 
     private Claims extractAllClaims(String token) {

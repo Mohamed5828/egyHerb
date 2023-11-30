@@ -2,7 +2,7 @@ package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime ;
 
 @Entity
 @Table(name = "order_items")
@@ -19,14 +19,14 @@ public class OrderItem {
     private int productId;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime  createdAt;
 
     @Column(name = "modified_at")
-    private Timestamp modifiedAt;
+    private LocalDateTime  modifiedAt;
 
     public OrderItem(){}
 
-    public OrderItem(int orderIdd, int productId, Timestamp createdAt, Timestamp modifiedAt) {
+    public OrderItem(int orderIdd, int productId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
         this.orderIdd = orderIdd;
         this.productId = productId;
         this.createdAt = createdAt;
@@ -57,19 +57,19 @@ public class OrderItem {
         this.productId = productId;
     }
 
-    public Timestamp getCreatedAt() {
+    public LocalDateTime  getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(LocalDateTime  createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Timestamp getModifiedAt() {
+    public LocalDateTime  getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(Timestamp modifiedAt) {
+    public void setModifiedAt(LocalDateTime  modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 

@@ -13,6 +13,7 @@ const {
   expireSelector,
   changeListing,
   URLSelector,
+  ratingSelector,
 } = selector;
 
 const {
@@ -27,7 +28,6 @@ const {
 } = require("./helperFunctions");
 
 let pageNumber = 1;
-let url = `https://www.iherb.com/c/21st-century-health-care?p=`;
 let firstRun;
 let imageData = [];
 let titlesData = [];
@@ -35,7 +35,7 @@ let weightData = [];
 let priceData = [];
 let priceEGP = [];
 let productURL = [];
-let genderData = [];
+let ratingData = [];
 let lifeStageData = [];
 let categoryData = [];
 let supplierData = [];
@@ -48,8 +48,8 @@ let productsData = [];
 let preData = [];
 const dbServer = "http://localhost:8080/products";
 
-async function start() {
-  firstRun = 0;
+async function start(brandurl) {
+  firstRun = 1;
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: false,
@@ -58,7 +58,7 @@ async function start() {
   });
   const page = await browser.newPage();
 
-  await page.goto(`${url}1`);
+  await page.goto(`${brandurl}`);
   if (firstRun == 0) {
     firstTimeRunning(page);
     firstRun = 1;
@@ -75,11 +75,15 @@ async function start() {
       } else {
         // Selector not found, do something else
         // console.log("Selector not found !");
+        pageNumber = 2;
+
         break;
       }
     } catch (error) {
       // Handle the error when selector is not found
       // console.log("Selector not found !");
+      pageNumber = 2;
+
       break;
     }
 
@@ -133,6 +137,12 @@ async function start() {
         attribute: "getAttribute",
         attributeValue: "data-metric",
       },
+      {
+        data: ratingData,
+        selector: ratingSelector,
+        attribute: "innerText",
+        attributeValue: "",
+      },
     ];
     await waitForFullPageLoad(page);
     for (const { data, selector, attribute, attributeValue } of selectors) {
@@ -154,6 +164,7 @@ async function start() {
         // data.push(values);
       } catch (error) {
         data.push([]);
+        pageNumber = 2;
       }
     }
     try {
@@ -165,7 +176,7 @@ async function start() {
     } catch (error) {}
 
     // console.log(expireData);
-    await page.goto(`${url + pageNumber}`);
+    await page.goto(`${brandurl}?p=${pageNumber}`);
     // await page.waitForNavigation();
   }
   dataManipulation(weightData, priceData);
@@ -181,18 +192,19 @@ async function start() {
     priceData.flat(),
     priceEGP,
     dimensionData.flat(),
+    ratingData.flat(),
     expireData
   );
   const jsonData = JSON.stringify(productsData);
-  async function postProducts() {
-    for (const product of jsonData) {
-      await postProduct(product, dbServer);
-    }
-  }
+  // async function postProducts() {
+  //   for (const product of jsonData) {
+  //     await postProduct(product, dbServer);
+  //   }
+  // }
 
-  postProducts();
-  await fs.writeFile("data.json", jsonData);
+  // postProducts();
+  // await fs.writeFile("data.json", jsonData);
   await browser.close();
 }
 
-start();
+module.exports = { start };

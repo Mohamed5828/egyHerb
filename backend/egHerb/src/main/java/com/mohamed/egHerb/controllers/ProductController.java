@@ -1,5 +1,7 @@
-package com.mohamed.egHerb.product;
+package com.mohamed.egHerb.controllers;
 
+import com.mohamed.egHerb.entity.Product;
+import com.mohamed.egHerb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

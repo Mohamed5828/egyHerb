@@ -6,6 +6,7 @@ import DisplayContainer from "./components/DisplayContainer";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
+import StripeApp from "./components/Stripe";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products" element={<DisplayContainer />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/registration" element={<NotFound />} />
+        {/* <Route path="/payment" element={<StripeApp />} /> */}
       </Routes>
     </Router>
   );

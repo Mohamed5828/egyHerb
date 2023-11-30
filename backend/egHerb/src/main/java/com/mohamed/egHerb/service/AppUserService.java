@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.appUser;
+package com.mohamed.egHerb.service;
 
 import com.mohamed.egHerb.dao.UserRepository;
 import lombok.AllArgsConstructor;

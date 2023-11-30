@@ -22,7 +22,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class GoogleAuthController {
 
     private final JwtService jwtService;
     private final CustomOAuth2UserService customOAuth2UserService;

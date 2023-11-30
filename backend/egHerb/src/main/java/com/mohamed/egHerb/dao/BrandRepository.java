@@ -1,5 +1,6 @@
-package com.mohamed.egHerb.brand;
+package com.mohamed.egHerb.dao;
 
+import com.mohamed.egHerb.entity.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

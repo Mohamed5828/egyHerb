@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.brand;
+package com.mohamed.egHerb.service;
 
 import com.mohamed.egHerb.dao.BrandRepository;
 import org.springframework.stereotype.Service;

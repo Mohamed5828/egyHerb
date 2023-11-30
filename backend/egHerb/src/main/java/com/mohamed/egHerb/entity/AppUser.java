@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.appUser;
+package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

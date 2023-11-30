@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.auth;
+package com.mohamed.egHerb.dto;
 
 import com.mohamed.egHerb.entity.AppUserRole;
 import lombok.AllArgsConstructor;

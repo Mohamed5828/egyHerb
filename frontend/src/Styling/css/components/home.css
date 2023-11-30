@@ -8,7 +8,8 @@
   background-color: #f6ffde;
 }
 
-.left-arrow, .right-arrow {
+.left-arrow,
+.right-arrow {
   position: absolute;
   font-size: 3rem;
   top: 50%;

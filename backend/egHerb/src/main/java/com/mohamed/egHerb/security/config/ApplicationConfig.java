@@ -1,6 +1,6 @@
 package com.mohamed.egHerb.security.config;
 
-import com.mohamed.egHerb.appUser.UserRepository;
+import com.mohamed.egHerb.dao.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

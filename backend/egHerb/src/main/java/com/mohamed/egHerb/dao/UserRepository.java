@@ -1,5 +1,6 @@
-package com.mohamed.egHerb.appUser;
+package com.mohamed.egHerb.dao;
 
+import com.mohamed.egHerb.entity.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,5 +1,6 @@
-package com.mohamed.egHerb.brand;
+package com.mohamed.egHerb.controllers;
 
+import com.mohamed.egHerb.dao.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

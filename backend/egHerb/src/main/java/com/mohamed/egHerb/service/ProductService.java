@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.product;
+package com.mohamed.egHerb.service;
 
 import com.mohamed.egHerb.dao.ProductRepository;
 import com.mohamed.egHerb.entity.Product;

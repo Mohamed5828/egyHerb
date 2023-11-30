@@ -1,76 +1,48 @@
 package com.mohamed.egHerb.entity;
 
+import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import java.time.LocalDateTime;
 
-import java.sql.Timestamp;
 
 @Entity
+@Getter
+@Setter
 @Table(name="cart_items")
 public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    @SerializedName("id")
+    private String id;
 
-    @Column(name = "product_id")
+//    @ManyToOne
+//    @JoinColumn(name = "product_id" , nullable = false)
     private int productId;
+
+//    @ManyToOne
+//    @JoinColumn(name = "user_id" , nullable = false)
+    private int userId;
 
     @Column(name = "quantity")
     private int quantity;
 
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "modified_at")
-    private Timestamp modifiedAt;
+    private LocalDateTime  modifiedAt;
 
     public  CartItem(){}
-    public CartItem(int productId, int quantity, Timestamp createdAt, Timestamp modifiedAt) {
+    public CartItem(int productId, int quantity,int userId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
         this.productId = productId;
         this.quantity = quantity;
+        this.userId = userId;
         this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 
@@ -79,6 +51,7 @@ public class CartItem {
         return "CartItem{" +
                 "id=" + id +
                 ", productId=" + productId +
+                ", userId=" + userId +
                 ", quantity=" + quantity +
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +

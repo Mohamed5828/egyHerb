@@ -64,7 +64,8 @@ function formObjectData(
   quantaties,
   prices,
   pricesEgy,
-  productsDimensions, 
+  productsDimensions,
+  ratings,
   expires
 ) {
   let index = startingIndex * 48;
@@ -80,7 +81,8 @@ function formObjectData(
       priceEg: pricesEgy[i],
       dimensions: productsDimensions[i],
       expiryDate: expires[i],
-      categoryId: categoryToId(titles[i]),
+      rating: ratings[i],
+      brandId: categoryToId(titles[i]),
     };
     jsonData.push(objData);
   }

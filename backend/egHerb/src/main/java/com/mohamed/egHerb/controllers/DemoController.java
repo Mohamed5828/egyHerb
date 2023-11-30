@@ -1,4 +1,4 @@
-package com.mohamed.egHerb.demo;
+package com.mohamed.egHerb.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

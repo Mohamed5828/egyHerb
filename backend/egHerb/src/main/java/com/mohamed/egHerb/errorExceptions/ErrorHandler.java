@@ -16,4 +16,13 @@ public class ErrorHandler {
 
         return new ResponseEntity<>(error , HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(ProductNotFoundException.class)
+    public ResponseEntity<ProductErrorResponse> handleProductNotFoundException(ProductNotFoundException exc) {
+        ProductErrorResponse error = new ProductErrorResponse();
+        error.setStatus(HttpStatus.NOT_FOUND.value());
+        error.setMessage(exc.getMessage());
+        error.setTimeStamp(System.currentTimeMillis());
+
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    }
 }

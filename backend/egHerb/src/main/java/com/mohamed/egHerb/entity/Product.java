@@ -1,9 +1,7 @@
-package com.mohamed.egHerb.product;
+package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-
-import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Getter
@@ -41,11 +39,11 @@ public class Product {
     @Column(name = "quantity")
     private String quantity;
 
-    @Column(name = "price_us" ,precision = 10, scale = 2)
-    private BigDecimal  priceUs;
+    @Column(name = "price_us" )
+    private int  priceUs;
 
-    @Column(name = "price_eg" , precision = 10, scale = 2)
-    private BigDecimal  priceEg;
+    @Column(name = "price_eg" )
+    private int  priceEg;
 
     @Column(name = "dimensions")
     private String dimensions;
@@ -63,7 +61,7 @@ public class Product {
 
     }
 
-    public Product(String productUrl,String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal  priceUs, BigDecimal  priceEg, String dimensions, String expiryDate, int categoryId, Timestamp modifiedAt) {
+    public Product(String productUrl,String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, int  priceUs, int  priceEg, String dimensions, String expiryDate, int categoryId, Timestamp modifiedAt) {
         this.productUrl = productUrl;
         this.firstImage = firstImage;
         this.secondImage = secondImage;
@@ -116,11 +114,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public void setPriceUs(BigDecimal  priceUs) {
+    public void setPriceUs(int  priceUs) {
         this.priceUs = priceUs;
     }
 
-    public void setPriceEg(BigDecimal priceEg) {
+    public void setPriceEg(int priceEg) {
         this.priceEg = priceEg;
     }
 

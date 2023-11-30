@@ -28,6 +28,9 @@ const expireSelector =
 const dimensionSelector =
   "div.products.clearfix > div.product-cell-detail > div.container-fluid-bs > div:nth-child(2) > div.col-xs-11.col-md-12.col-lg-15.col-product-title > div.row.row-buffer-sm > div > ul > li:nth-child(4) > span > span > span";
 
+const ratingSelector =
+  "div.products.clearfix > div.product-cell-detail > div.container-fluid-bs  > div:nth-child(2) > div.col-xs-11.col-md-12.col-lg-15.col-product-title > div:nth-child(2) > div > div > a.rating-count > span";
+
 module.exports = {
   langChangeBtn,
   modal,
@@ -44,4 +47,5 @@ module.exports = {
   priceSelector,
   expireSelector,
   dimensionSelector,
+  ratingSelector,
 };

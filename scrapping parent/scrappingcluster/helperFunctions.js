@@ -38,14 +38,18 @@ function formObjectData(
   images,
   description,
   suggestedUseData,
-  otherIngredData
+  otherIngredData,
+  category,
+  categoyDescription
 ) {
   const objData = {
-    title: titles,
+    title: titles[1],
     image: images,
     description: description,
     suggestedUseData: suggestedUseData,
     otherIngredData: otherIngredData,
+    categories: category,
+    categories_description: categoyDescription,
   };
   jsonData.push(objData);
 }

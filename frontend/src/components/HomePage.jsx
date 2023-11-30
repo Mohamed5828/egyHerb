@@ -9,8 +9,12 @@ import URL from "../tools/config";
 import { useDataFetching } from "../tools/DataFetching";
 import herbData from "../tools/data.json";
 import PlayerComponent from "./Video";
+import ProductsDisplay from "./ProductsDisplay";
+import ProductsDisplayMobile from "./ProductsDisplayMobile";
 
 const HomePage = () => {
+  const isMobile = window.innerWidth <= 599;
+
   // const { data, loading, error } = useDataFetching(URL + `/posts/post`);
   // const { data, loading, error } = useDataFetching(da);
   // if (loading) {
@@ -21,37 +25,7 @@ const HomePage = () => {
       <div className="home-container">
         <PlayerComponent />
         <h1 className="header">Featured </h1>
-        <div className="cards-container">
-          <div className="card-header"></div>
-          {herbData.map((prod) => {
-            return (
-              <div className="col-11-xs col-5-sm col-4-xl">
-                <Link to={`product`}>
-                  <div className="cards">
-                    <div className="card-info">
-                      <button
-                        className="cart-btn"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                        }}
-                      >
-                        Add to cart
-                      </button>
-                    </div>
-                    <div className="img-container">
-                      <img className="card-img" src={prod.image} />
-                    </div>
-                    <div className="card-desc">
-                      <h1 className="card-title">{prod.title}</h1>
-                      <h1 className="card-price">{prod.priceEgypt} L.E</h1>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
+        {isMobile ? <ProductsDisplayMobile /> : <ProductsDisplay />}
         <h1 className="header">Latest </h1>
         <div className="row gap-2">
           <div className="footer">

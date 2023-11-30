@@ -1,9 +1,11 @@
-package com.mohamed.egHerb.auth;
+package com.mohamed.egHerb.service;
 
+import com.mohamed.egHerb.dto.AuthenticationRequest;
+import com.mohamed.egHerb.dto.AuthenticationResponse;
+import com.mohamed.egHerb.dto.RegisterRequest;
 import com.mohamed.egHerb.entity.AppUser;
 import com.mohamed.egHerb.entity.AppUserRole;
 import com.mohamed.egHerb.dao.UserRepository;
-import com.mohamed.egHerb.security.config.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
