@@ -42,7 +42,7 @@ public class Brand {
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "Brand{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", brandUrl='" + brandUrl + '\'' +

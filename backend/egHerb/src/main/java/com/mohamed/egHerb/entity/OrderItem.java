@@ -1,10 +1,14 @@
 package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime ;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "order_items")
 public class OrderItem {
     @Id
@@ -12,11 +16,13 @@ public class OrderItem {
     @Column(name="id")
     private int id;
 
-    @Column(name = "order_id")
-    private int orderIdd;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderDetail order;
 
-    @Column(name = "product_id")
-    private int productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @Column(name = "created_at")
     private LocalDateTime  createdAt;
@@ -26,50 +32,10 @@ public class OrderItem {
 
     public OrderItem(){}
 
-    public OrderItem(int orderIdd, int productId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
-        this.orderIdd = orderIdd;
-        this.productId = productId;
+    public OrderItem(OrderDetail orderId, Product productId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
+        this.order = orderId;
+        this.product = productId;
         this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getOrderIdd() {
-        return orderIdd;
-    }
-
-    public void setOrderIdd(int orderIdd) {
-        this.orderIdd = orderIdd;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public LocalDateTime  getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime  createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime  getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(LocalDateTime  modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 
@@ -77,8 +43,8 @@ public class OrderItem {
     public String toString() {
         return "OrderItem{" +
                 "id=" + id +
-                ", orderIdd=" + orderIdd +
-                ", productId=" + productId +
+                ", orderIdd=" + order +
+                ", productId=" + product +
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +
                 '}';

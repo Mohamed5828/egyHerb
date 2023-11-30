@@ -1,14 +1,18 @@
 package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Data
 @Builder
@@ -28,19 +32,27 @@ public class AppUser implements UserDetails {
 
     private String lastName;
     @Column(name = "mobile")
-    private int mobile;
+    private long mobile;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
 
     @Column(name = "created_at")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "user")
+    private List<CartItem> cartItems;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserAddress> userAddresses;
+
+    @OneToMany(mappedBy = "user")
+    private List<OrderDetail> orderDetails;
 
     public AppUser(String firstName,
                    String lastName,
-                   int mobile,
+                   long mobile,
                    String email,
                    String password,
                    AppUserRole appUserRole,

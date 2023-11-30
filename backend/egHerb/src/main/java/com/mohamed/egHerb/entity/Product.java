@@ -2,9 +2,14 @@ package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "products")
 public class Product {
@@ -22,13 +27,11 @@ public class Product {
     @Column(name = "second_image")
     private String secondImage;
 
-
     @Column(name = "title")
     private String title;
 
     @Column(name = "popularity")
     private int popularity;
-
 
     @Column(name = "description")
     private String description;
@@ -39,11 +42,11 @@ public class Product {
     @Column(name = "quantity")
     private String quantity;
 
-    @Column(name = "price_us" )
-    private int  priceUs;
+    @Column(name = "price_us")
+    private BigDecimal priceUs;
 
-    @Column(name = "price_eg" )
-    private int  priceEg;
+    @Column(name = "price_eg")
+    private BigDecimal priceEg;
 
     @Column(name = "dimensions")
     private String dimensions;
@@ -51,17 +54,24 @@ public class Product {
     @Column(name = "expiry_date")
     private String expiryDate;
 
-    @Column(name = "category_id")
-    private int categoryId;
+    @ManyToOne
+    @JoinColumn(name = "brand_id", nullable = false)
+    private Brand brand;
 
-    @Column(name = "modified_at")
+    @Column(name = "modified_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Timestamp modifiedAt;
 
-    public Product(){
-
+    @ManyToMany
+    @JoinTable(
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories;
+    public Product() {
     }
 
-    public Product(String productUrl,String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, int  priceUs, int  priceEg, String dimensions, String expiryDate, int categoryId, Timestamp modifiedAt) {
+    public Product(String productUrl, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category>  category) {
         this.productUrl = productUrl;
         this.firstImage = firstImage;
         this.secondImage = secondImage;
@@ -74,68 +84,9 @@ public class Product {
         this.priceEg = priceEg;
         this.dimensions = dimensions;
         this.expiryDate = expiryDate;
-        this.categoryId = categoryId;
+        this.brand = brand;
         this.modifiedAt = modifiedAt;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setProductUrl(String productUrl) {
-        this.productUrl = productUrl;
-    }
-
-    public void setFirstImage(String firstImage) {
-        this.firstImage = firstImage;
-    }
-
-    public void setSecondImage(String secondImage) {
-        this.secondImage = secondImage;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setPopularity(int popularity) {
-        this.popularity = popularity;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public void setPriceUs(int  priceUs) {
-        this.priceUs = priceUs;
-    }
-
-    public void setPriceEg(int priceEg) {
-        this.priceEg = priceEg;
-    }
-
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
+        this.categories = category;
     }
 
     @Override
@@ -154,9 +105,9 @@ public class Product {
                 ", priceEg=" + priceEg +
                 ", dimensions='" + dimensions + '\'' +
                 ", expiryDate='" + expiryDate + '\'' +
-                ", categoryId=" + categoryId +
+                ", brand=" + brand +
                 ", modifiedAt=" + modifiedAt +
+                ", category=" + categories +
                 '}';
     }
 }
-

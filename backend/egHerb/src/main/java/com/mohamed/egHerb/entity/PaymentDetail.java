@@ -1,10 +1,14 @@
 package com.mohamed.egHerb.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
+@Getter
+@Setter
 @Table(name="payment_details")
 public class PaymentDetail {
     @Id
@@ -12,8 +16,9 @@ public class PaymentDetail {
     @Column(name="id")
     private int id;
 
-    @Column(name="order_id")
-    private int orderId;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private OrderDetail order;
 
     @Column(name="status")
     private String status;
@@ -25,58 +30,17 @@ public class PaymentDetail {
     private Timestamp modifiedAt;
 
     public PaymentDetail(){}
-    public PaymentDetail(int orderId, String status, Timestamp createdAt, Timestamp modifiedAt) {
-        this.orderId = orderId;
+    public PaymentDetail(OrderDetail orderId, String status, Timestamp createdAt, Timestamp modifiedAt) {
+        this.order = orderId;
         this.status = status;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Timestamp getModifiedAt() {
-        return modifiedAt;
-    }
-
-    public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
-
     @Override
     public String toString() {
         return "PaymentDetail{" +
                 "id=" + id +
-                ", orderId=" + orderId +
+                ", orderId=" + order +
                 ", status='" + status + '\'' +
                 ", createdAt=" + createdAt +
                 ", modifiedAt=" + modifiedAt +
