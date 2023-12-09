@@ -21,6 +21,15 @@ public class Product {
     @Column(name = "product_url")
     private String productUrl;
 
+    @Column(name = "suggested_use", columnDefinition = "TEXT")
+    private String suggestedUse;
+
+    @Column(name = "other_ingredients", columnDefinition = "TEXT")
+    private String otherIngredients;
+
+    @Column(name = "categories_description", columnDefinition = "TEXT")
+    private String categoriesDescription;
+
     @Column(name = "first_image")
     private String firstImage;
 
@@ -55,24 +64,29 @@ public class Product {
     private String expiryDate;
 
     @ManyToOne
-    @JoinColumn(name = "brand_id", nullable = false)
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @Column(name = "modified_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    @Column(name = "modified_at",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Timestamp modifiedAt;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
+
     private List<Category> categories;
+
     public Product() {
     }
 
-    public Product(String productUrl, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category>  category) {
+    public Product(String productUrl, String suggestedUse, String otherIngredients, String categoriesDescription, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category> categories) {
         this.productUrl = productUrl;
+        this.suggestedUse = suggestedUse;
+        this.otherIngredients = otherIngredients;
+        this.categoriesDescription = categoriesDescription;
         this.firstImage = firstImage;
         this.secondImage = secondImage;
         this.title = title;
@@ -86,7 +100,7 @@ public class Product {
         this.expiryDate = expiryDate;
         this.brand = brand;
         this.modifiedAt = modifiedAt;
-        this.categories = category;
+        this.categories = categories;
     }
 
     @Override
@@ -94,6 +108,9 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", productUrl='" + productUrl + '\'' +
+                ", suggestedUse='" + suggestedUse + '\'' +
+                ", otherIngredients='" + otherIngredients + '\'' +
+                ", categoriesDescription='" + categoriesDescription + '\'' +
                 ", firstImage='" + firstImage + '\'' +
                 ", secondImage='" + secondImage + '\'' +
                 ", title='" + title + '\'' +
@@ -107,7 +124,7 @@ public class Product {
                 ", expiryDate='" + expiryDate + '\'' +
                 ", brand=" + brand +
                 ", modifiedAt=" + modifiedAt +
-                ", category=" + categories +
+                ", categories=" + categories +
                 '}';
     }
 }

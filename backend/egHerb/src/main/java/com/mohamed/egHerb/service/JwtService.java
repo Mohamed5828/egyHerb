@@ -1,11 +1,9 @@
 package com.mohamed.egHerb.service;
 
 import com.mohamed.egHerb.entity.AppUser;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +19,7 @@ import java.util.stream.Collectors;
 public class JwtService {
 
     private static final String SECRET_KEY = "RpR2qwuAcwTp4VcCwElFXH37YNsVdO6IoWC0lqJGGwZ1VqG2y8muv2OWoVwy2heN";
+    private Logger log;
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -90,36 +89,49 @@ public class JwtService {
         }
     }
 
-    public int extractUserIdFromToken(){
+    public Integer extractUserIdFromToken() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication != null){
-            Object principal = authentication.getPrincipal();
-            if(principal instanceof UserDetails){
-                Claims claims = extractAllClaims(((UserDetails) principal).getUsername());
-                return (int) claims.get("userId");
-            }
+        if (authentication != null && authentication.getPrincipal() instanceof AppUser) {
+            return ((AppUser) authentication.getPrincipal()).getId();
+        } else {
+            log.error("Unable to extract user ID from token.");
+            return null;
         }
-        return 0;
     }
 
     private Claims extractAllClaims(String token) {
         try {
-            return Jwts.parserBuilder()
+            System.out.println("Attempting to parse token: " + token);
+            Jws<Claims> claimsJws = Jwts.parserBuilder()
                     .setSigningKey(getSignInKey())
                     .build()
-                    .parseClaimsJws(token)
-                    .getBody();
-        } catch (Exception e) {
-            throw new RuntimeException("Error extracting claims from token: " + e.getMessage(), e);
+                    .parseClaimsJws(token);
+
+            Claims claims = claimsJws.getBody();
+            System.out.println("Claims extracted successfully: " + claims);
+
+            return claims;
+        } catch (ExpiredJwtException e) {
+            System.out.println("Token has expired: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Token has expired", e);
+        } catch (UnsupportedJwtException | MalformedJwtException | SignatureException | IllegalArgumentException e) {
+            System.out.println("Error extracting claims from token: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Error extracting claims from token", e);
         }
     }
 
     private Key getSignInKey() {
         try {
             byte[] keyBytes = Base64.getDecoder().decode(SECRET_KEY);
+            System.out.println("Decoded key: " + new String(keyBytes)); // Print decoded key for debugging
             return Keys.hmacShaKeyFor(keyBytes);
         } catch (Exception e) {
-            throw new RuntimeException("Error getting signing key: " + e.getMessage(), e);
+            System.out.println("Error getting signing key: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Error getting signing key", e);
         }
     }
+
 }

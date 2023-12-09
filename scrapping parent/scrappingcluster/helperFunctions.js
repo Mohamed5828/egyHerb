@@ -44,10 +44,10 @@ function formObjectData(
 ) {
   const objData = {
     title: titles[1],
-    image: images,
-    description: description,
-    suggestedUseData: suggestedUseData,
-    otherIngredData: otherIngredData,
+    image: images[0],
+    description: description[0],
+    suggestedUseData: suggestedUseData[0],
+    otherIngredData: otherIngredData[0],
     categories: category,
     categories_description: categoyDescription,
   };

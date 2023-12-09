@@ -5,6 +5,7 @@ USE `products_directory`;
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `product_category`;
 DROP TABLE IF EXISTS `user_address`;
 DROP TABLE IF EXISTS `cart_items`;
 DROP TABLE IF EXISTS `payment_details`;
@@ -52,17 +53,35 @@ CREATE TABLE `products` (
 
 
 CREATE TABLE `category` (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
   category_name VARCHAR(100),
 );
 
 CREATE TABLE `product_category` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
   `product_id` INT,
   `category_id` INT,
-  PRIMARY KEY (`product_id`, `category_id`),
+  UNIQUE KEY `unique_product_category` (`product_id`, `category_id`), -- Add a unique constraint
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
 );
+
+-- -- Index on product_category.product_id
+-- CREATE INDEX idx_product_category_product_id ON products_directory.product_category (product_id);
+
+-- -- Index on product_category.category_id
+-- CREATE INDEX idx_product_category_category_id ON products_directory.product_category (category_id);
+
+-- SELECT C.category_name
+-- FROM products_directory.category AS C
+-- INNER JOIN products_directory.product_category AS PC ON C.id = PC.category_id
+-- WHERE PC.product_id = 4;
+
+-- SELECT P.*
+-- FROM products_directory.products AS P
+-- INNER JOIN products_directory.product_category AS PC ON P.id = PC.product_id
+-- WHERE PC.category_id = 1;
+
 
 
 CREATE TABLE `user` (

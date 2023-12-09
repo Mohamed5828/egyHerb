@@ -1,10 +1,4 @@
---how run the code everyday at a certain time (node-cron) ?
---write a better scrapper to catch the prices
---use proxy in case of ip block (proxy server/vpn)
---spyder
---frontend side of the project
---how to store data in sql server
---how to run certain code only one time at first
+
 -------------------------------------------------------------------
 --dimensions and expire
 --search for the chatgpt answer

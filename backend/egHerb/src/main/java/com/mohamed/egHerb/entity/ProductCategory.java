@@ -10,17 +10,17 @@ import lombok.Setter;
 @Table(name = "product_category")
 public class ProductCategory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    // Constructors, getters, and setters
 
     public ProductCategory() {
     }

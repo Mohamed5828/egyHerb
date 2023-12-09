@@ -11,6 +11,10 @@ import {
 import herbData from "../tools/data.json";
 import { Link } from "react-router-dom";
 import Pagination from "./Pagination";
+import DisplayContainerMobile from "./DisplayContainerMobile";
+import DisplayBrand from "./DisplayBrand";
+
+const isMobile = window.innerWidth <= 599;
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -339,29 +343,7 @@ export default function DisplayContainer() {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 {" "}
-                <div className="cards-container">
-                  {herbData.map((prod) => {
-                    return (
-                      <div className="col-11-xs col-5-sm col-4-xl">
-                        <Link to={``}>
-                          <div className="cards">
-                            <div className="card-info">
-                              <button className="cart-btn">Add to cart</button>
-                            </div>
-                            <div className="img-container">
-                              <img className="card-img" src={prod.image} />
-                            </div>
-
-                            <h1 className="card-title">{prod.title}</h1>
-                            <h1 className="card-price">
-                              {prod.priceEgypt} L.E
-                            </h1>
-                          </div>
-                        </Link>
-                      </div>
-                    );
-                  })}
-                </div>
+                {isMobile ? <DisplayContainerMobile /> : <DisplayBrand />}
               </div>
             </div>
             <Pagination />

@@ -21,9 +21,6 @@ public class UserAddress {
     @Column(name = "address_line1")
     private String addressLine1;
 
-    @Column(name = "address_line2")
-    private String addressLine2;
-
     @Column(name = "city")
     private String city;
 
@@ -35,10 +32,10 @@ public class UserAddress {
 
     public UserAddress(){}
 
-    public UserAddress(AppUser userId, String addressLine1, String addressLine2, String city, String area, int mobile) {
+    public UserAddress(AppUser userId, String addressLine1, String city, String area, int mobile) {
         this.user = userId;
         this.addressLine1 = addressLine1;
-        this.addressLine2 = addressLine2;
+
         this.city = city;
         this.area = area;
         this.mobile = mobile;
@@ -50,7 +47,6 @@ public class UserAddress {
                 "id=" + id +
                 ", userId=" + user +
                 ", addressLine1='" + addressLine1 + '\'' +
-                ", addressLine2='" + addressLine2 + '\'' +
                 ", city='" + city + '\'' +
                 ", area='" + area + '\'' +
                 ", mobile=" + mobile +

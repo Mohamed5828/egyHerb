@@ -7,8 +7,11 @@
   padding: $base-padding * 1.5;
   box-shadow: $base-box-shadow;
   background-color: $navbarBackground;
-  position: fixed;
-  z-index: 10;
+  flex-wrap: wrap;
+
+  // position: fixed;
+  // z-index: 10;
+  @extend %transition;
 
   .site-title {
     font-size: $large-font-size;
@@ -16,6 +19,17 @@
   .container {
     @extend %flex-layout;
   }
+}
+//need to make a transtition usable
+.sticky {
+  padding: $base-padding * 1.5;
+  left: 0;
+  position: fixed;
+  top: 0;
+  background-color: $navbarBackground;
+  width: 100%;
+  z-index: 1000;
+  @extend %transition;
 }
 
 .logo {
@@ -25,6 +39,7 @@
 .navbar li {
   list-style: none;
   display: inline-block;
+  margin: $base-margin;
 }
 .navbar li a {
   text-decoration: none;
@@ -36,9 +51,16 @@
   opacity: 0.8;
 }
 
+/* see edits */
+
 .search-bar {
   @extend %input-field;
   height: 4vh;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+  min-width: 150px;
 }
 
 .navbar-menu {
@@ -66,7 +88,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: #f1f1f1;
+  background-color: $defaultWhite;
   padding: $base-padding;
   border: $base-border-thickness solid #ccc;
   margin-top: $base-margin;
@@ -95,6 +117,46 @@
 
 .nav-search {
   padding: 0;
-  display: flex;
+  @extend %flex-center;
+}
+
+.sign-in-svg {
+  margin-left: 7px;
+}
+
+.cart-svg {
+}
+.search-svg {
+  margin-left: $base-margin * 0.5;
+}
+.cancel-search-svg {
+  width: 25px;
+}
+
+.search-container {
+  display: grid;
+  background-color: $defaultWhite;
+  grid-template-columns: 38px auto 30px;
   align-items: center;
+  width: 100%;
+  max-width: $max-search-width;
+  margin: 0 auto;
+  line-height: $line-height;
+  border-radius: 6px;
+  border: ($base-border-thickness * 2) solid $searchColor;
+}
+
+.search-container:focus-within {
+  border: ($base-border-thickness * 2) solid $searchFocus;
+}
+
+.main-nav-container {
+  @extend %flex-layout;
+  margin-bottom: $base-margin;
+}
+.category-navebar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: ($base-border-thickness * 1.5) dashed $mainBlack;
 }

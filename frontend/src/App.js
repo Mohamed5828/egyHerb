@@ -3,7 +3,7 @@ import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DisplayContainer from "./components/DisplayContainer";
-import Product from "./components/Product";
+import SingleProductPage from "./components/SingleProductPage";
 import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import StripeApp from "./components/Stripe";
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<DisplayContainer />} />
-        <Route path="/product/:id" element={<Product />} />
+        <Route path="/product/:id" element={<SingleProductPage />} />
         <Route path="/registration" element={<NotFound />} />
         {/* <Route path="/payment" element={<StripeApp />} /> */}
       </Routes>

@@ -19,6 +19,9 @@ public class Brand {
     private String brandUrl;
 
     public Brand(){}
+    public Brand(int brandId){
+        this.id = brandId;
+    }
 
     public Brand(String name, String brandUrl) {
         this.name = name;

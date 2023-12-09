@@ -13,6 +13,8 @@ $base-border-thickness: 1px;
 
 $base-border-radius: 20px;
 
+$cart-width-height: 40px;
+
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
 
 $base-font-size: 1rem;
@@ -23,6 +25,8 @@ $main-transition: all 0.3s ease 0s;
 
 $slider-width: 500px;
 $slider-height: 300px;
+$line-height: 35px;
+$max-search-width: 600px;
 
 %container {
   width: 100%;
@@ -42,6 +46,11 @@ $slider-height: 300px;
   box-sizing: border-box;
 }
 
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+
 %arrow {
   position: absolute;
   font-size: 3rem;
@@ -54,6 +63,10 @@ $slider-height: 300px;
   font-weight: bold;
   transition: 0.6s ease;
   font-size: 30px;
+}
+
+%transition {
+  transition: 0.3s ease;
 }
 
 %input-field {
