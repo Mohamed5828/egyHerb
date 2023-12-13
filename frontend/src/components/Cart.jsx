@@ -1,41 +1,20 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import axios from "axios";
+import { useCart } from "../tools/CartContext";
+import {
+  handleDecrement,
+  handleIncrement,
+  handleRemove,
+} from "../tools/CartHandlers";
 
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
-
-export default function Cart() {
-  const [open, setOpen] = useState(true);
+export default function Cart({ isCartOpen, toggleCart }) {
+  const { cartItems, dispatch } = useCart();
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={isCartOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={toggleCart}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -71,7 +50,7 @@ export default function Cart() {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={toggleCart}
                           >
                             <span className="sr-only">Close panel</span>
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -85,7 +64,7 @@ export default function Cart() {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((product) => (
+                            {cartItems.map((product) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
@@ -117,11 +96,9 @@ export default function Cart() {
                                       strokeWidth={1.5}
                                       stroke="currentColor"
                                       className="w-6 h-6 hover:text-gray-500"
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        product.quantity += 1;
-                                        console.log(product.quantity);
-                                      }}
+                                      onClick={() =>
+                                        handleIncrement(dispatch, product.id)
+                                      }
                                     >
                                       <path
                                         strokeLinecap="round"
@@ -141,10 +118,13 @@ export default function Cart() {
                                       strokeWidth={1.5}
                                       stroke="currentColor"
                                       className="w-6 h-6 hover:text-gray-500"
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        product.quantity -= 1;
-                                      }}
+                                      onClick={() =>
+                                        handleDecrement(
+                                          dispatch,
+                                          product.id,
+                                          product.quantity
+                                        )
+                                      }
                                     >
                                       <path
                                         strokeLinecap="round"
@@ -158,6 +138,9 @@ export default function Cart() {
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        onClick={() =>
+                                          handleRemove(dispatch, product.id)
+                                        }
                                       >
                                         Remove
                                       </button>
@@ -193,7 +176,7 @@ export default function Cart() {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={toggleCart}
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>

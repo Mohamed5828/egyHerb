@@ -8,7 +8,7 @@ import URL from "../tools/config";
 // import Loading from "./Loading";
 import { useDataFetching } from "../tools/DataFetching";
 import herbData from "../tools/data.json";
-import PlayerComponent from "./Video";
+import PlayerComponent from "../components/Video";
 import ProductsDisplay from "./ProductsDisplay";
 import ProductsDisplayMobile from "./ProductsDisplayMobile";
 

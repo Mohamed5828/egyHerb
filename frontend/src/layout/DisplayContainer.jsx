@@ -8,11 +8,10 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
-import herbData from "../tools/data.json";
-import { Link } from "react-router-dom";
-import Pagination from "./Pagination";
-import DisplayContainerMobile from "./DisplayContainerMobile";
-import DisplayBrand from "./DisplayBrand";
+import Pagination from "../components/Pagination";
+import DisplayContentMobile from "./DisplayContentMobile";
+import DisplayContentNormal from "./DisplayContentNormal";
+import { useParams } from "react-router-dom";
 
 const isMobile = window.innerWidth <= 599;
 
@@ -61,7 +60,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function DisplayContainer() {
+export default function DisplayContainer({ type }) {
+  const { categoryName, brandName } = useParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
@@ -194,7 +194,10 @@ export default function DisplayContainer() {
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-              21st Century
+              {type === "category"
+                ? `Category : ${categoryName}`
+                : `Brand
+              : ${brandName}`}
             </h1>
             <input type="search" placeholder="Search Within" />
             <div className="flex items-center">
@@ -343,7 +346,7 @@ export default function DisplayContainer() {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 {" "}
-                {isMobile ? <DisplayContainerMobile /> : <DisplayBrand />}
+                {isMobile ? <DisplayContentMobile /> : <DisplayContentNormal />}
               </div>
             </div>
             <Pagination />

@@ -1,8 +1,12 @@
 import React from "react";
 import herbData from "../tools/data.json";
 import { Link } from "react-router-dom";
+import { useCart } from "../tools/CartContext";
+import { handleAddToCart } from "../tools/CartHandlers";
 
-function DisplayContainerMobile() {
+function DisplayContentMobile() {
+  const { dispatch } = useCart();
+
   return (
     <div>
       {herbData.map((prod) => (
@@ -21,7 +25,7 @@ function DisplayContainerMobile() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                // Add your cart functionality here
+                handleAddToCart(dispatch, prod);
               }}
             >
               <svg
@@ -40,4 +44,4 @@ function DisplayContainerMobile() {
   );
 }
 
-export default DisplayContainerMobile;
+export default DisplayContentMobile;

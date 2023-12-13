@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "../Styling/css/components/navbar.css";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import SigninBtn from "./SigninBtn";
 
-function Navbar() {
+function Navbar({ isCartOpen, toggleCart }) {
   const [sideMenu, setSideMenu] = useState(false);
   const [isSticky, setSticky] = useState(false);
   function toggleSideMenu() {
@@ -34,7 +35,7 @@ function Navbar() {
           <SearchBar />
           <ul className="navbar-links">
             <li>
-              <div className="cart-div">
+              <div className="cart-div" onClick={toggleCart}>
                 <svg
                   focusable="false"
                   viewBox="2 2 24 24"
@@ -50,17 +51,7 @@ function Navbar() {
             </li>
             <li>
               <div className="sign-in-div">
-                <svg
-                  focusable="false"
-                  viewBox="2 2 24 24"
-                  aria-hidden="true"
-                  className="sign-in-svg"
-                >
-                  <path d="M14 4.5a9.5 9.5 0 109.5 9.5A9.51 9.51 0 0014 4.5zM9.26 21.05v-2.17a3.37 3.37 0 013.36-3.36h2.74a3.37 3.37 0 013.36 3.36v2.19a8.47 8.47 0 01-9.48 0zM14 14.5a2.5 2.5 0 112.5-2.5 2.5 2.5 0 01-2.5 2.5zm5.73 5.76v-1.38a4.37 4.37 0 00-3.44-4.26A3.45 3.45 0 0017.5 12a3.5 3.5 0 00-7 0 3.45 3.45 0 001.21 2.62 4.37 4.37 0 00-3.44 4.26v1.38a8.5 8.5 0 1111.46 0z"></path>
-                </svg>
-                <div>
-                  <span>Sign in</span>
-                </div>
+                <SigninBtn />
               </div>
             </li>
           </ul>
@@ -73,12 +64,24 @@ function Navbar() {
         <nav className="category-navebar">
           <div>
             <ul className="category-ul">
-              <li className="category">vitamin B</li>
-              <li className="category">vitamin E</li>
-              <li className="category">vitamin C</li>
-              <li className="category">vitamin D</li>
-              <li className="category">Zinc</li>
-              <li className="category">Omega 3</li>
+              <li className="category">
+                <Link to="/category/vitamin-B">vitamin B</Link>
+              </li>
+              <li className="category">
+                <Link to="/category/vitamin-E">vitamin E</Link>
+              </li>
+              <li className="category">
+                <Link to="/category/vitamin-C">vitamin C</Link>
+              </li>
+              <li className="category">
+                <Link to="/category/vitamin-D">vitamin D</Link>
+              </li>
+              <li className="category">
+                <Link to="/category/Zinc">Zinc</Link>
+              </li>
+              <li className="category">
+                <Link to="/category/Omega-3">Omega 3</Link>
+              </li>
             </ul>
           </div>
         </nav>

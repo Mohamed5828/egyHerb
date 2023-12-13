@@ -1,4 +1,5 @@
-
+make if a user login if the user cart was empty make the initial cart the user Cart
+make products brought succefuly page / ribbon
 -------------------------------------------------------------------
 --dimensions and expire
 --search for the chatgpt answer

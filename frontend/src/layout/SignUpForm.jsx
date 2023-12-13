@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../Styling/css/components/postSubmitted.css";
+import axios, { AxiosError } from "axios";
+import { useSignIn } from "react-auth-kit";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
@@ -17,11 +19,24 @@ const SignUpForm = () => {
       [name]: value,
     });
   };
-
+  const signIn = useSignIn();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log("Form data submitted:", formData);
+    try {
+      const response = axios.post(
+        "http://localhost:8080/api/v1/auth/register",
+        formData
+      );
+
+      signIn({
+        token: response.data.token,
+        expiresIn: 3600,
+        tokenType: "Bearer",
+        authState: { email: formData.email },
+      });
+    } catch (err) {
+      if (err && err instanceof AxiosError) console.log(err);
+    }
   };
 
   return (

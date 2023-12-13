@@ -1,10 +1,43 @@
+import axios from "axios";
 import React, { useEffect } from "react";
+import { useSignIn as useSignInKit } from "react-auth-kit";
+import { useNavigate } from "react-router-dom";
 
-function GoogleAuth(token) {
+function GoogleAuth() {
+  const signInKit = useSignInKit();
+  const navigate = useNavigate();
+
   function handleCallbackResponse(response) {
     console.log("Encoded jwt ID token : " + response.credential);
-    token = response.credential;
+    exchangeGoogleJwtWithToken(response.credential);
   }
+  async function exchangeGoogleJwtWithToken(googleToken) {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/google",
+        {
+          token: `${googleToken}`,
+        }
+      );
+      const customToken = response.data.token;
+      signInWithCustomToken(customToken);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function signInWithCustomToken(loginToken) {
+    try {
+      signInKit({
+        token: loginToken,
+        expiresIn: 3600,
+        tokenType: "Bearer",
+      });
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error signing in with custom token:", error);
+    }
+  }
+
   useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
