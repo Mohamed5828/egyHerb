@@ -85,6 +85,9 @@ function Navbar({ isCartOpen, toggleCart }) {
                 <li className="category">
                   <Link to="/category/Omega-3">Omega 3</Link>
                 </li>
+                <li className="category">
+                  <Link to="/brands">All Brands</Link>
+                </li>
               </ul>
             </div>
           </nav>
