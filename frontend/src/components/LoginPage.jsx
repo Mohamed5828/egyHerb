@@ -1,6 +1,7 @@
 // LoginPage.js
 import React, { useState } from "react";
 import useSignIn from "../tools/SignIn"; // Import the custom hook
+import "./../Styling/css/components/login.css";
 
 function LoginPage() {
   const signIn = useSignIn(); // Use the custom hook
@@ -13,7 +14,6 @@ function LoginPage() {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
       <form>
         <label htmlFor="username">Username:</label>
         <input

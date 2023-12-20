@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../Styling/css/components/navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import SigninBtn from "./SigninBtn";
 
 function Navbar({ isCartOpen, toggleCart }) {
   const [sideMenu, setSideMenu] = useState(false);
   const [isSticky, setSticky] = useState(false);
+  const location = useLocation();
+
   function toggleSideMenu() {
     setSideMenu((prevState) => (prevState = !prevState));
   }
@@ -26,7 +28,7 @@ function Navbar({ isCartOpen, toggleCart }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const isHomePage = location.pathname === "/";
   return (
     <>
       <header className={`navbar `}>
@@ -61,30 +63,32 @@ function Navbar({ isCartOpen, toggleCart }) {
             </svg>
           </div>
         </div>
-        <nav className="category-navebar">
-          <div>
-            <ul className="category-ul">
-              <li className="category">
-                <Link to="/category/vitamin-B">vitamin B</Link>
-              </li>
-              <li className="category">
-                <Link to="/category/vitamin-E">vitamin E</Link>
-              </li>
-              <li className="category">
-                <Link to="/category/vitamin-C">vitamin C</Link>
-              </li>
-              <li className="category">
-                <Link to="/category/vitamin-D">vitamin D</Link>
-              </li>
-              <li className="category">
-                <Link to="/category/Zinc">Zinc</Link>
-              </li>
-              <li className="category">
-                <Link to="/category/Omega-3">Omega 3</Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        {isHomePage && (
+          <nav className="category-navebar">
+            <div>
+              <ul className="category-ul">
+                <li className="category">
+                  <Link to="/category/vitamin-B">vitamin B</Link>
+                </li>
+                <li className="category">
+                  <Link to="/category/vitamin-E">vitamin E</Link>
+                </li>
+                <li className="category">
+                  <Link to="/category/vitamin-C">vitamin C</Link>
+                </li>
+                <li className="category">
+                  <Link to="/category/vitamin-D">vitamin D</Link>
+                </li>
+                <li className="category">
+                  <Link to="/category/Zinc">Zinc</Link>
+                </li>
+                <li className="category">
+                  <Link to="/category/Omega-3">Omega 3</Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        )}
       </header>
       {sideMenu && (
         <div className="sidebar">

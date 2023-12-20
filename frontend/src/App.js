@@ -10,6 +10,7 @@ import NotFound from "./layout/NotFound";
 import StripeApp from "./components/Stripe";
 import LoginPage from "./components/LoginPage";
 import { CartProvider } from "./tools/CartContext";
+import Brands from "./layout/Brands";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = React.useState(true);
@@ -34,6 +35,7 @@ function App() {
             <Route path="/product/:id" element={<SingleProductPage />} />
             <Route path="/registration" element={<NotFound />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/brands" element={<Brands />} />
             <Route
               path="/category/:categoryName"
               element={<DisplayContainer type="category" />}

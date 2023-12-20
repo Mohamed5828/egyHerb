@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 // import cartReducer from "./CartReducer";
 const CartContext = createContext();
-const cartReducer = (state, action) => {
+function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_CART":
       return [...state, action.payload];
@@ -19,7 +19,7 @@ const cartReducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
 export const CartProvider = ({ children }) => {
   const [cartItems, dispatch] = useReducer(cartReducer, []);
@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
             name: "Throwback Hip Bag",
             href: "#",
             color: "Salmon",
-            price: "$90.00",
+            price: 90.0,
             quantity: 1,
             imageSrc:
               "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
             name: "Medium Stuff Satchel",
             href: "#",
             color: "Blue",
-            price: "$32.00",
+            price: 32.0,
             quantity: 1,
             imageSrc:
               "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
