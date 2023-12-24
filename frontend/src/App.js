@@ -11,6 +11,8 @@ import StripeApp from "./components/Stripe";
 import LoginPage from "./components/LoginPage";
 import { CartProvider } from "./tools/CartContext";
 import Brands from "./layout/Brands";
+import NewHome from "./layout/NewHome";
+import InquiryForm from "./layout/Inquiry";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = React.useState(true);
@@ -27,7 +29,7 @@ function App() {
     >
       <CartProvider>
         <Router>
-          <Navbar isCartOpen={isCartOpen} toggleCart={toggleCart} />
+          {/* <Navbar isCartOpen={isCartOpen} toggleCart={toggleCart} /> */}
           <Cart isCartOpen={isCartOpen} toggleCart={toggleCart} />
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -36,6 +38,8 @@ function App() {
             <Route path="/registration" element={<NotFound />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/brands" element={<Brands />} />
+            <Route path="/newHome" element={<NewHome />} />
+            <Route path="/inquiry" element={<InquiryForm />} />
             <Route
               path="/category/:categoryName"
               element={<DisplayContainer type="category" />}

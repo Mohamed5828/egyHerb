@@ -1,0 +1,29 @@
+@import "../sassStyling/colors";
+@import "../sassStyling/variables";
+@import "../sassStyling/breakpoints";
+@import "../sassStyling/gridSystem";
+
+.login-container {
+  max-width: 400px;
+  margin: 70px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+
+  form {
+    @extend %form;
+  }
+  label {
+    @extend %label;
+  }
+
+  input {
+    @extend %input-field;
+  }
+}

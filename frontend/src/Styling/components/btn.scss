@@ -48,6 +48,20 @@
   @include btn($secondary);
 }
 
+.contact-btn {
+  @include btn($contactUsBtn);
+  margin: $base-margin;
+}
+
+.login-btn,
+.submit-button {
+  @include btn($loginBtn);
+  border-radius: 3px;
+  color: #fff;
+  &:hover {
+    background-color: #45a049;
+  }
+}
 //btns hover effect
 
 // Animate the size, inside

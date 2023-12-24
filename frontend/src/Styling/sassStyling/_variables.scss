@@ -71,9 +71,17 @@ $max-search-width: 600px;
 
 %input-field {
   padding: $base-padding * 0.5;
-  border: none;
-  box-shadow: $base-box-shadow;
-  width: 70%;
-  max-width: 250px;
-  min-width: 150px;
+  border-radius: 3px;
+  font-size: $base-font-size;
+  border: 1px solid #ccc;
+  margin-bottom: $base-margin;
+}
+%label {
+  margin-bottom: $base-margin * 0.5;
+  color: #333;
+}
+
+%form {
+  display: flex;
+  flex-direction: column;
 }

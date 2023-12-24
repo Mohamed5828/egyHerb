@@ -17,11 +17,10 @@
 
 .search-bar {
   padding: 0.375rem;
-  border: none;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  max-width: 250px;
-  min-width: 150px;
+  border-radius: 3px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  margin-bottom: 0.75rem;
 }
 
 .navbar {
@@ -32,6 +31,7 @@
 }
 .navbar .site-title {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .sticky {
   padding: 1.125rem;
@@ -40,7 +40,7 @@
   top: 0;
   background-color: hsl(120, 5%, 32%);
   width: 100%;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .logo {
@@ -131,6 +131,11 @@
 
 .sign-in-svg {
   margin-left: 7px;
+  cursor: pointer;
+}
+
+.cart-svg {
+  cursor: pointer;
 }
 
 .search-svg {

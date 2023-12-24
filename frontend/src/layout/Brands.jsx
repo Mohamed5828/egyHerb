@@ -2,7 +2,7 @@
 import React from "react";
 import realData from "./../data.json";
 import { Link } from "react-router-dom";
-import "./../Styling/css/components/brands.css"; // Import the CSS file
+import "./../Styling/css/components/brand.css"; // Import the CSS file
 
 const Brands = () => {
   // Group brands by first letter or "0-9" if it starts with a number

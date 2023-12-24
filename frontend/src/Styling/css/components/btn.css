@@ -467,6 +467,48 @@
   color: #fff;
 }
 
+.contact-btn {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem;
+  background-color: #d6dab9;
+  line-height: 1;
+  color: black;
+  transition: 0.25s;
+  margin: 0.75rem;
+}
+.contact-btn:hover, .contact-btn:focus {
+  border-color: #c3bef0;
+  color: #fff;
+}
+
+.login-btn,
+.submit-button {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem;
+  background-color: #4caf50;
+  line-height: 1;
+  color: black;
+  transition: 0.25s;
+  border-radius: 3px;
+  color: #fff;
+}
+.login-btn:hover, .login-btn:focus,
+.submit-button:hover,
+.submit-button:focus {
+  border-color: #c3bef0;
+  color: #fff;
+}
+.login-btn:hover,
+.submit-button:hover {
+  background-color: #45a049;
+}
+
 .fill:hover,
 .fill:focus {
   box-shadow: inset 0 0 0 2em #c3bef0;

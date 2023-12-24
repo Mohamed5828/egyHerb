@@ -5,11 +5,11 @@
   padding: 0 0.75rem;
   padding-top: 5rem;
   box-sizing: border-box;
-  background-color: #f6ffde;
+  background-color: #fff;
 }
 
 .allItems-container {
-  background-color: #f6ffde;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

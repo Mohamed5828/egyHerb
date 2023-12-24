@@ -1,12 +1,16 @@
-/* Brands.css */
+@import "../sassStyling/colors";
+@import "../sassStyling/variables";
+@import "../sassStyling/breakpoints";
+@import "../sassStyling/gridSystem";
+
 .brands-container {
-  border: 1px solid grey;
+  border: $base-border-thickness solid $brandsBorder;
   padding: 10px;
   margin: 10px;
 }
 
 .brand-group {
-  border-bottom: 1px solid grey;
+  border-bottom: $base-border-thickness solid $brandsBorder;
   margin: 20px;
 }
 
@@ -25,15 +29,16 @@
 /* Additional styling for links */
 .brand-item a {
   text-decoration: none;
-  color: #007bff;
-  font-size: small;
+  color: $brandsText;
+  font-size: $base-font-size * 0.75;
 }
 
 .letter-header {
-  border-bottom: 1px solid grey;
+  border-bottom: $base-border-thickness solid $brandsBorder;
   width: 100%;
   font-weight: bold;
   font-size: large;
-  color: orangered;
+  color: $brandsHeaders;
   margin: 5px 0;
 }
+
