@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const fs = require("fs/promises");
-const selector = require("./selector");
+const selector = require("./selectorMain");
 const axios = require("axios");
 
 const {
@@ -25,7 +25,7 @@ const {
   blankPage,
   editExpireDate,
   postProduct,
-} = require("./helperFunctions");
+} = require("./helperFunctionsMain");
 
 let pageNumber = 1;
 let firstRun;

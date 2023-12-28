@@ -4,13 +4,10 @@
 // @import "../sassStyling/gridSystem";
 .navbar {
   @extend %flex-layout;
-  padding: $base-padding * 1.5;
+  padding: $base-padding;
   box-shadow: $base-box-shadow;
   background-color: $navbarBackground;
   flex-wrap: wrap;
-
-  // position: fixed;
-  // z-index: 10;
   @extend %transition;
 
   .site-title {
@@ -21,9 +18,15 @@
     @extend %flex-layout;
   }
 }
+.main-nav-container {
+  @extend %flex-layout;
+  padding: $base-padding;
+  padding-top: 0;
+  z-index: 5;
+}
 //need to make a transtition usable
-.sticky {
-  padding: $base-padding * 1.5;
+.sticky-navbar {
+  padding: $base-padding;
   left: 0;
   position: fixed;
   top: 0;
@@ -61,7 +64,7 @@
   outline: none;
   box-shadow: none;
   width: 100%;
-  min-width: 150px;
+  min-width: 130px;
 }
 
 .navbar-menu {
@@ -74,6 +77,7 @@
   }
   .navbar-menu {
     display: inline-block;
+    width: 40px;
   }
 }
 @include sm {
@@ -95,6 +99,8 @@
   margin-top: $base-margin;
   font-size: $large-font-size;
   color: $text;
+  bottom: 0px;
+  top: 58px;
   z-index: 4;
 }
 
@@ -141,7 +147,7 @@
   background-color: $defaultWhite;
   grid-template-columns: 38px auto 30px;
   align-items: center;
-  width: 100%;
+  width: 60%;
   max-width: $max-search-width;
   margin: 0 auto;
   line-height: $line-height;
@@ -153,10 +159,6 @@
   border: ($base-border-thickness * 2) solid $searchFocus;
 }
 
-.main-nav-container {
-  @extend %flex-layout;
-  margin-bottom: $base-margin;
-}
 .category-navebar {
   width: 100%;
   display: flex;

@@ -19,13 +19,13 @@ let brandsName = [
   "https://www.iherb.com/c/acwell",
 ];
 
-const scrapProducts = require("./scrapping/index");
+const scrapProducts = require("./allScrapingFiles/selectorMain");
 // const scrapBrand = require("./scrapping brands/index");
 // const scrapProductDeatails = require("./scrappingcluster/index");
 
 const axios = require("axios");
 const { postData } = require("./tools/dataPost");
-const backendSaveorUpdate = "/api/products/updateOrSave";
+const backendSaveorUpdateURL = "/api/products/updateOrSave";
 let allProductsData = [];
 
 
@@ -34,8 +34,9 @@ let allProductsData = [];
 // Example usage
 
 processURLs(brandsName);
+//postData takes (url , data , onsuccess, onError)
 postData(
-  backendSaveorUpdate,
+  backendSaveorUpdateURL,
   allProductsData,
   () => {
     console.log("Success"); // Log a simple success message

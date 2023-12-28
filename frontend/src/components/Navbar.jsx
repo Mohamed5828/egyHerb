@@ -4,14 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import SigninBtn from "./SigninBtn";
 
-function Navbar({ isCartOpen, toggleCart }) {
-  const [sideMenu, setSideMenu] = useState(false);
+function Navbar({ isCartOpen, toggleCart, isSideMenu, toggleSideMenu }) {
   const [isSticky, setSticky] = useState(false);
   const location = useLocation();
 
-  function toggleSideMenu() {
-    setSideMenu((prevState) => (prevState = !prevState));
-  }
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -32,7 +28,9 @@ function Navbar({ isCartOpen, toggleCart }) {
   return (
     <>
       <header className={`navbar `}>
-        <div className={`main-nav-container ${isSticky ? "sticky" : ""}`}>
+        <div
+          className={`main-nav-container ${isSticky ? "sticky-navbar" : ""}`}
+        >
           <h1 className="site-title">herbs</h1>
           <SearchBar />
           <ul className="navbar-links">
@@ -93,24 +91,6 @@ function Navbar({ isCartOpen, toggleCart }) {
           </nav>
         )}
       </header>
-      {sideMenu && (
-        <div className="sidebar">
-          <div className="sidebar-content">
-            <div className="side-search">
-              <h4>Search for a product:</h4>
-            </div>
-            <li>
-              <Link to={""}>Shop</Link>
-            </li>
-            <li>
-              <Link to={"allposts"}>Brands</Link>
-            </li>
-            <li>
-              <Link to={"drafts"}>Help with</Link>
-            </li>
-          </div>
-        </div>
-      )}
     </>
   );
 }

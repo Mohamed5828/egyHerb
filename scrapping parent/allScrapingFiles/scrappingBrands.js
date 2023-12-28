@@ -1,11 +1,11 @@
 const fs = require("fs/promises");
-const selector = require("./selector");
+const selector = require("./selectorBrands");
 const puppeteer = require("puppeteer");
 const {
   formObjectData,
 
   postProduct,
-} = require("./helperFunctions");
+} = require("./helperFunctionsBrands");
 const {
   allBrandsSelector,
   langChangeBtn,

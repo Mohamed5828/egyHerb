@@ -103,6 +103,10 @@ public class Product {
         this.categories = categories;
     }
 
+    public Product(int productId) {
+        id = productId;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

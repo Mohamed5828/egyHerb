@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+
 @Table(name="cart_items")
 public class CartItem {
 
@@ -36,10 +37,10 @@ public class CartItem {
 
 
     public  CartItem(){}
-    public CartItem(Product productId, int quantity,AppUser userId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
-        this.product = productId;
+    public CartItem(int productId, int quantity,int userId, LocalDateTime  createdAt, LocalDateTime  modifiedAt) {
+        this.product = new Product(productId) ;
         this.quantity = quantity;
-        this.user = userId;
+        this.user = new AppUser(userId) ;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }

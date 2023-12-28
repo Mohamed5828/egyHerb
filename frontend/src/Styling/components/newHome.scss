@@ -74,3 +74,28 @@
   text-align: center;
   margin-top: $base-margin * 2.5;
 }
+
+.home-image {
+  margin: $base-margin;
+  width: 95vw;
+  position: relative;
+}
+
+.image-text {
+}
+
+.banner-image-div {
+  border-radius: $combined-value;
+  padding: $base-padding;
+  transition: $main-transition;
+  &:hover {
+    border: $base-border;
+    transform: scale(1.005);
+  }
+}
+
+.banner-image {
+  border-radius: $base-border-radius;
+  width: 100%;
+  box-shadow: $base-box-shadow;
+}

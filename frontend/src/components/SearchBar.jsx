@@ -32,7 +32,7 @@ function SearchBar() {
       <form role="search" action={`/postsearch/${searchWord}`} method="get">
         <input
           autoComplete="off"
-          placeholder="Find anything herb..."
+          placeholder="Find anything.."
           value={searchWord}
           onChange={handleChange}
           name="search"

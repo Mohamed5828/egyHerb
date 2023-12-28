@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HomePage from "./layout/HomePage";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -13,13 +13,20 @@ import { CartProvider } from "./tools/CartContext";
 import Brands from "./layout/Brands";
 import NewHome from "./layout/NewHome";
 import InquiryForm from "./layout/Inquiry";
+import Sidemenu from "./components/Sidemenu";
 
 function App() {
-  const [isCartOpen, setIsCartOpen] = React.useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(true);
 
   function toggleCart() {
     return setIsCartOpen(!isCartOpen);
   }
+
+  const [isSideMenu, setSideMenu] = useState(false);
+  function toggleSideMenu() {
+    setSideMenu((prevState) => (prevState = !prevState));
+  }
+
   return (
     <AuthProvider
       authType={"cookie"}
@@ -29,16 +36,21 @@ function App() {
     >
       <CartProvider>
         <Router>
-          {/* <Navbar isCartOpen={isCartOpen} toggleCart={toggleCart} /> */}
+          <Navbar
+            isCartOpen={isCartOpen}
+            toggleCart={toggleCart}
+            isSideMenu={isSideMenu}
+            toggleSideMenu={toggleSideMenu}
+          />
+          <Sidemenu isSideMenu={isSideMenu} toggleSideMenu={toggleSideMenu} />
           <Cart isCartOpen={isCartOpen} toggleCart={toggleCart} />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<NewHome />} />
             <Route path="/products" element={<DisplayContainer />} />
             <Route path="/product/:id" element={<SingleProductPage />} />
             <Route path="/registration" element={<NotFound />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/brands" element={<Brands />} />
-            <Route path="/newHome" element={<NewHome />} />
             <Route path="/inquiry" element={<InquiryForm />} />
             <Route
               path="/category/:categoryName"

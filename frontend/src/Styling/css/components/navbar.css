@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.sticky, .navbar {
+.sticky-navbar, .navbar {
   transition: 0.3s ease;
 }
 
@@ -24,21 +24,27 @@
 }
 
 .navbar {
-  padding: 1.125rem;
+  padding: 0.75rem;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-  background-color: hsl(120, 5%, 32%);
+  background-color: #aaba94;
   flex-wrap: wrap;
 }
 .navbar .site-title {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.sticky {
-  padding: 1.125rem;
+.main-nav-container {
+  padding: 0.75rem;
+  padding-top: 0;
+  z-index: 5;
+}
+
+.sticky-navbar {
+  padding: 0.75rem;
   left: 0;
   position: fixed;
   top: 0;
-  background-color: hsl(120, 5%, 32%);
+  background-color: #aaba94;
   width: 100%;
   z-index: 5;
 }
@@ -71,7 +77,7 @@
   outline: none;
   box-shadow: none;
   width: 100%;
-  min-width: 150px;
+  min-width: 130px;
 }
 
 .navbar-menu {
@@ -84,6 +90,7 @@
   }
   .navbar-menu {
     display: inline-block;
+    width: 40px;
   }
 }
 @media (min-width: 580px) {
@@ -104,6 +111,8 @@
   margin-top: 0.75rem;
   font-size: 1.5rem;
   color: #222831;
+  bottom: 0px;
+  top: 58px;
   z-index: 4;
 }
 
@@ -151,7 +160,7 @@
   background-color: #fff;
   grid-template-columns: 38px auto 30px;
   align-items: center;
-  width: 100%;
+  width: 60%;
   max-width: 600px;
   margin: 0 auto;
   line-height: 35px;
@@ -161,10 +170,6 @@
 
 .search-container:focus-within {
   border: 2px solid blue;
-}
-
-.main-nav-container {
-  margin-bottom: 0.75rem;
 }
 
 .category-navebar {

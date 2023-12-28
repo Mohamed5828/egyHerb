@@ -451,22 +451,6 @@
   color: #fff;
 }
 
-.navbar-menu {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  border: 0;
-  padding: 0.75rem;
-  background-color: #cca8e9;
-  line-height: 1;
-  color: black;
-  transition: 0.25s;
-}
-.navbar-menu:hover, .navbar-menu:focus {
-  border-color: #c3bef0;
-  color: #fff;
-}
-
 .contact-btn {
   text-decoration: none;
   cursor: pointer;

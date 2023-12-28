@@ -13,6 +13,10 @@ $base-border-thickness: 1px;
 
 $base-border-radius: 20px;
 
+$base-border: 1px solid $borderColor;
+
+$combined-value: $base-border-radius + 16 * 0.75;
+
 $cart-width-height: 40px;
 
 $base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);

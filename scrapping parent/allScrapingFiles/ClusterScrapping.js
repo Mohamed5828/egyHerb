@@ -1,11 +1,11 @@
 const fs = require("fs/promises");
-const selector = require("./selector");
+const selector = require("./selectorCluster");
 const { Cluster } = require("puppeteer-cluster");
 const {
   formObjectData,
   waitForFullPageLoad,
   firstTimeRunning,
-} = require("./helperFunctions");
+} = require("./helperFunctionsCluster");
 const {
   imageSelector,
   descSelector,

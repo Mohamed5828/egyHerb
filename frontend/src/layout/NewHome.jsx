@@ -97,6 +97,17 @@ function NewHome() {
             </div>
           ))}
         </div>
+        <div className="home-image">
+          <h2 className="image-text"></h2>
+          <div className="banner-image-div">
+            <img
+              className="banner-image"
+              src={
+                "https://firebasestorage.googleapis.com/v0/b/blogimgupload-3998a.appspot.com/o/site%2Fnew.jpg?alt=media&token=a98dfb91-9f6c-4e4d-a110-8faf707642eb"
+              }
+            />
+          </div>
+        </div>
       </div>
       <div className="banner">
         <h2 className="banner-header">What is EgyHerb</h2>
