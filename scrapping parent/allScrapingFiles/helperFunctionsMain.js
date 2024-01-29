@@ -1,4 +1,4 @@
-const selector = require("./selector");
+const selector = require("./selectorMain");
 const axios = require("axios");
 
 const {
@@ -45,13 +45,18 @@ async function firstTimeRunning(page) {
     }, 1400),
     await page.waitForNavigation(),
 
-    // page.click(changeListing),
+    page.click(changeListing),
     page.waitForNavigation(),
   ]);
 }
 
 async function listLayoutChange(page) {
-  await Promise.all([page.click(changeListing), page.waitForNavigation()]);
+  await page.click(changeListing);
+
+  //!impotant this is the right one commented//
+
+  // await Promise.all([page.click(changeListing)
+  //   , page.waitForNavigation()]);
 }
 
 function formObjectData(
@@ -66,7 +71,8 @@ function formObjectData(
   pricesEgy,
   productsDimensions,
   ratings,
-  expires
+  expires,
+  brandId
 ) {
   let index = startingIndex * 48;
   for (let i = index; i < titles.length + index; i++) {
@@ -82,7 +88,7 @@ function formObjectData(
       dimensions: productsDimensions[i],
       expiryDate: expires[i],
       rating: ratings[i],
-      brandId: categoryToId(titles[i]),
+      brandId: brandId[0],
     };
     jsonData.push(objData);
   }

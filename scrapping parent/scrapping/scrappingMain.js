@@ -53,7 +53,7 @@ async function start(brandurl) {
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: false,
-    userDataDir: "./tmp",
+    // userDataDir: "./tmp",
     args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
@@ -203,8 +203,8 @@ async function start(brandurl) {
   // }
 
   // postProducts();
-  // await fs.writeFile("data.json", jsonData);
+  await fs.writeFile("21st.json", jsonData);
   await browser.close();
 }
-
+start("https://www.iherb.com/c/21st-century-health-care?p=1");
 module.exports = { start };

@@ -493,6 +493,30 @@
   background-color: #45a049;
 }
 
+.register-btn {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: 0.75rem;
+  background-color: #457fa0;
+  line-height: 1;
+  color: black;
+  transition: 0.25s;
+  border-radius: 3px;
+  color: #fff;
+  margin: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+.register-btn:hover, .register-btn:focus {
+  border-color: #c3bef0;
+  color: #fff;
+}
+.register-btn:hover {
+  background-color: #455aa0;
+}
+
 .fill:hover,
 .fill:focus {
   box-shadow: inset 0 0 0 2em #c3bef0;

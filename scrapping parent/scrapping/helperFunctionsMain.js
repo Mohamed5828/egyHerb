@@ -1,4 +1,4 @@
-const selector = require("./selector");
+const selector = require("./selectorMain");
 const axios = require("axios");
 
 const {

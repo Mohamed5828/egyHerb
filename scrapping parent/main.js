@@ -1,51 +1,76 @@
-let brandsName = [
-  "https://www.iherb.com/c/107-beauty",
-  "https://www.iherb.com/c/21st-century-health-care",
-  "https://www.iherb.com/c/310-nutrition",
-  "https://www.iherb.com/c/a-dozen-cousins",
-  "https://www.iherb.com/c/a-la-maison-de-",
-  "https://www.iherb.com/c/a-taste-of-thai",
-  "https://www.iherb.com/c/a-vogel",
-  "https://www.iherb.com/c/a-c-grace-company",
-  "https://www.iherb.com/c/apieu",
-  "https://www.iherb.com/c/a-d",
-  "https://www.iherb.com/c/abib",
-  "https://www.iherb.com/c/abracadabra-abra-therapeutics",
-  "https://www.iherb.com/c/abreva",
-  "https://www.iherb.com/c/absolute-nutrition",
-  "https://www.iherb.com/c/act",
-  "https://www.iherb.com/c/action-labs",
-  "https://www.iherb.com/c/acure",
-  "https://www.iherb.com/c/acwell",
-];
+// const brandsData = require("./tools/brandData.json");
+const brandsData = require("./tools/firstScrape.json");
+// const postData = require("./tools/dataPost");
+// const axios = require("axios");
+// const backendSaveorUpdateURL = "/api/products/updateOrSave";
+const createCsvWriter = require("csv-writer").createObjectCsvWriter;
+const fs = require("fs");
 
-const scrapProducts = require("./allScrapingFiles/selectorMain");
+const scrappingTest = require("./allScrapingFiles/testScrapping");
+
 // const scrapBrand = require("./scrapping brands/index");
 // const scrapProductDeatails = require("./scrappingcluster/index");
+const processBrandAsync = async (currentBrand, index) => {
+  await scrappingTest.start(currentBrand.brandUrl, currentBrand.name, index);
+  console.log("currently processing the following brand " + currentBrand.name);
+  // const dataDirectory = "dataCsv";
+  // const filePath = `${dataDirectory}/${currentBrand.name}.csv`;
 
-const axios = require("axios");
-const { postData } = require("./tools/dataPost");
-const backendSaveorUpdateURL = "/api/products/updateOrSave";
-let allProductsData = [];
+  // if (!fs.existsSync(dataDirectory)) {
+  //   fs.mkdirSync(dataDirectory);
+  // }
 
+  // const csvWriter = createCsvWriter({
+  //   path: filePath,
+  //   header: [
+  //     // Define headers based on your data structure
+  //     { id: "firstImage", title: "firstImage" },
+  //     { id: "popularity", title: "popularity" },
+  //     { id: "productUrl", title: "productUrl" },
+  //     { id: "title", title: "title" },
+  //     { id: "weight", title: "weight" },
+  //     { id: "quantity", title: "quantity" },
+  //     { id: "priceUs", title: "priceUs" },
+  //     { id: "priceEg", title: "priceEg" },
+  //     { id: "dimensions", title: "dimensions" },
+  //     { id: "expiryDate", title: "expiryDate" },
+  //     { id: "rating", title: "rating" },
+  //     { id: "brandId", title: "brandId" },
+  //   ],
+  // });
 
+  // await csvWriter.writeRecords(scrappingData);
+};
 
-
-// Example usage
-
-processURLs(brandsName);
-//postData takes (url , data , onsuccess, onError)
-postData(
-  backendSaveorUpdateURL,
-  allProductsData,
-  () => {
-    console.log("Success"); // Log a simple success message
-    // Handle success, if needed
-  },
-  (error) => {
-    console.error("Error:", error.message);
+// Assuming brandsData is an array
+const processBrands = async () => {
+  for (let i = 0; i < brandsData.length; i++) {
+    await processBrandAsync(brandsData[i], i);
   }
-);
+};
+
+// Call the asynchronous function
+processBrands()
+  .then(() => {
+    console.log("Processing completed.");
+  })
+  .catch((error) => {
+    console.error("Error during processing:", error);
+  });
+
+// console.log(brandsData[0]);
+// //postData takes (url , data , onsuccess, onError)
+// postData(
+//   backendSaveorUpdateURL,
+//   allProductsData,
+//   () => {
+//     console.log("Success"); // Log a simple success message
+//     // Handle success, if needed
+//   },
+//   (error) => {
+//     console.error("Error:", error.message);
+//   }
+// );
 // Replace 'your-username', 'your-password', and 'your-api-endpoint' with actual values
 // performGetRequest(
 //   "ahmed@gmail.com",

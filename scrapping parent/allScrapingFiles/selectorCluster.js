@@ -1,4 +1,6 @@
 const titleSelector = "#name";
+const firstImageSelector =
+  "#product-image > div.thumbnail-container > div:nth-child(1) > img";
 const imageSelector =
   "#product-image > div.thumbnail-container > div:nth-child(2) > img";
 const descSelector =
@@ -41,4 +43,5 @@ module.exports = {
   saveBtn,
   categoriesSelector,
   categoriesDescriptionSelector,
+  firstImageSelector,
 };

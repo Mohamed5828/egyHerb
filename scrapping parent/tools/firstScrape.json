@@ -1,0 +1,84 @@
+[
+  {
+    "name": "Garden of Life",
+    "brandUrl": "https://www.iherb.com/c/garden-of-life"
+  },
+  {
+    "name": "Happy Family Organics",
+    "brandUrl": "https://www.iherb.com/c/happy-family-organics"
+  },
+  {
+    "name": "Heritage Store",
+    "brandUrl": "https://www.iherb.com/c/heritage-store"
+  },
+  {
+    "name": "iHerb Brands",
+    "brandUrl": "https://www.iherb.com/c/iherb-brands"
+  },
+  {
+    "name": "Jarrow Formulas",
+    "brandUrl": "https://www.iherb.com/c/jarrow-formulas"
+  },
+  {
+    "name": "Lake Avenue Nutrition",
+    "brandUrl": "https://www.iherb.com/c/lake-avenue-nutrition"
+  },
+  {
+    "name": "Life Extension",
+    "brandUrl": "https://www.iherb.com/c/life-extension"
+  },
+  { "name": "Life-flo", "brandUrl": "https://www.iherb.com/c/life-flo" },
+  { "name": "Mad Hippie", "brandUrl": "https://www.iherb.com/c/mad-hippie" },
+  {
+    "name": "Manuka Doctor",
+    "brandUrl": "https://www.iherb.com/c/manuka-doctor"
+  },
+  { "name": "MegaFood", "brandUrl": "https://www.iherb.com/c/megafood" },
+  {
+    "name": "Mild By Nature",
+    "brandUrl": "https://www.iherb.com/c/mild-by-nature"
+  },
+  { "name": "Natrol", "brandUrl": "https://www.iherb.com/c/natrol" },
+  {
+    "name": "Natural Factors",
+    "brandUrl": "https://www.iherb.com/c/natural-factors"
+  },
+  {
+    "name": "Nature's Answer",
+    "brandUrl": "https://www.iherb.com/c/nature-s-answer"
+  },
+  {
+    "name": "Nature's Bounty",
+    "brandUrl": "https://www.iherb.com/c/nature-s-bounty"
+  },
+  {
+    "name": "Nature's Way",
+    "brandUrl": "https://www.iherb.com/c/nature-s-way"
+  },
+  {
+    "name": "Nordic Naturals",
+    "brandUrl": "https://www.iherb.com/c/nordic-naturals"
+  },
+  {
+    "name": "Nubian Heritage",
+    "brandUrl": "https://www.iherb.com/c/nubian-heritage"
+  },
+  {
+    "name": "Optimum Nutrition",
+    "brandUrl": "https://www.iherb.com/c/optimum-nutrition"
+  },
+  { "name": "Oslomega", "brandUrl": "https://www.iherb.com/c/oslomega" },
+  { "name": "Sambucol", "brandUrl": "https://www.iherb.com/c/sambucol" },
+  { "name": "Solaray", "brandUrl": "https://www.iherb.com/c/solaray" },
+  { "name": "Solgar", "brandUrl": "https://www.iherb.com/c/solgar" },
+  {
+    "name": "Source Naturals",
+    "brandUrl": "https://www.iherb.com/c/source-naturals"
+  },
+  {
+    "name": "Sports Research",
+    "brandUrl": "https://www.iherb.com/c/sports-research"
+  },
+  { "name": "Ultamins", "brandUrl": "https://www.iherb.com/c/ultamins" },
+  { "name": "Vitables", "brandUrl": "https://www.iherb.com/c/vitables" }
+]

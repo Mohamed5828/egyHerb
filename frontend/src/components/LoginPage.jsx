@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import useSignIn from "../tools/SignIn"; // Import the custom hook
 import "./../Styling/css/components/login.css";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const signIn = useSignIn(); // Use the custom hook
@@ -35,6 +36,9 @@ function LoginPage() {
           Login
         </button>
       </form>
+      <Link className="register-btn" to="/registration">
+        New User
+      </Link>
     </div>
   );
 }

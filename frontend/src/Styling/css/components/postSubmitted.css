@@ -12,3 +12,7 @@
   text-decoration: none;
   color: #cca8e9;
 }
+
+.form-container {
+  display: flex;
+}

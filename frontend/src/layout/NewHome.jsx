@@ -103,7 +103,7 @@ function NewHome() {
             <img
               className="banner-image"
               src={
-                "https://firebasestorage.googleapis.com/v0/b/blogimgupload-3998a.appspot.com/o/site%2Fnew.jpg?alt=media&token=a98dfb91-9f6c-4e4d-a110-8faf707642eb"
+                "https://firebasestorage.googleapis.com/v0/b/blogimgupload-3998a.appspot.com/o/Untitled-2.png?alt=media&token=9cd93b7c-f5c1-4224-b196-af82d661e2d5"
               }
             />
           </div>

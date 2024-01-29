@@ -16,7 +16,7 @@ export default function Cart({ isCartOpen, toggleCart }) {
   useEffect(() => {
     setTotalPrice(() => {
       return cartItems.reduce((accumulator, item) => {
-        return accumulator + item.price * item.quantity;
+        return accumulator + item.priceEgypt * item.cartQuantity;
       }, 0);
     });
   }, [cartItems]);
@@ -77,8 +77,8 @@ export default function Cart({ isCartOpen, toggleCart }) {
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={product.image}
+                                    alt={product.title}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -87,16 +87,16 @@ export default function Cart({ isCartOpen, toggleCart }) {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>
-                                        <a href={product.href}>
-                                          {product.name}
+                                        <a href={`/product/${product.id}`}>
+                                          {product.title}
                                         </a>
                                       </h3>
                                       <p className="ml-4">
-                                        {product.price} L.E
+                                        {product.priceEgypt} L.E
                                       </p>
                                     </div>
                                     <p className="mt-1 text-sm text-gray-500">
-                                      {product.color}
+                                      {product.quantity}
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
@@ -120,7 +120,7 @@ export default function Cart({ isCartOpen, toggleCart }) {
                                     </svg>
 
                                     <p className="text-gray-500">
-                                      Qty {product.quantity}
+                                      Qty {product.cartQuantity}
                                     </p>
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ export default function Cart({ isCartOpen, toggleCart }) {
                                         handleDecrement(
                                           dispatch,
                                           product.id,
-                                          product.quantity
+                                          product.cartQuantity
                                         )
                                       }
                                     >
@@ -168,7 +168,7 @@ export default function Cart({ isCartOpen, toggleCart }) {
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>{totalPrice} L.E</p>
+                        <p>{totalPrice.toFixed(2)} L.E</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.

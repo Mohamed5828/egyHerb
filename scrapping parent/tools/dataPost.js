@@ -1,4 +1,4 @@
-export function postData(url, data, onSuccess, onError) {
+async function postData(url, data, onSuccess, onError) {
   axios
     .post(url, data)
     .then((response) => {
@@ -12,3 +12,4 @@ export function postData(url, data, onSuccess, onError) {
       }
     });
 }
+module.exports = { postData };

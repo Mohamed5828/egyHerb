@@ -1,4 +1,4 @@
-const selector = require("./selector");
+const selector = require("./selectorCluster");
 
 const {
   langChangeBtn,
@@ -36,6 +36,7 @@ function formObjectData(
   jsonData,
   titles,
   images,
+  secondImage,
   description,
   suggestedUseData,
   otherIngredData,
@@ -44,7 +45,8 @@ function formObjectData(
 ) {
   const objData = {
     title: titles[1],
-    image: images[0],
+    firstImage: images[0],
+    secondImage: secondImage[0],
     description: description[0],
     suggestedUseData: suggestedUseData[0],
     otherIngredData: otherIngredData[0],

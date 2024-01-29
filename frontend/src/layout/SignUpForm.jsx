@@ -96,7 +96,7 @@ const SignUpForm = () => {
           By creating an account, you agree to Egherb's <i>Conditions of Use</i>{" "}
           and <i>Privacy Notice</i>.
         </p>
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={handleSubmit}>
           Submit
         </button>
       </div>

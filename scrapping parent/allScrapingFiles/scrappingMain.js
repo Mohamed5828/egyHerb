@@ -1,7 +1,9 @@
-const puppeteer = require("puppeteer");
-const fs = require("fs/promises");
+const puppeteer = require("puppeteer-extra");
+const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 const selector = require("./selectorMain");
-const axios = require("axios");
+
+const fs = require("fs/promises");
+// const axios = require("axios");
 
 const {
   imageSelector,
@@ -36,28 +38,38 @@ let priceData = [];
 let priceEGP = [];
 let productURL = [];
 let ratingData = [];
-let lifeStageData = [];
-let categoryData = [];
-let supplierData = [];
 let dimensionData = [];
 let expireData = [];
 let quantityData = [];
-const dollarToday = 10;
 let dataIndex = 0;
 let productsData = [];
 let preData = [];
-const dbServer = "http://localhost:8080/products";
 
-async function start(brandurl) {
+async function start(brandurl, brandId) {
+  puppeteer.use(StealthPlugin());
   firstRun = 1;
   const browser = await puppeteer.launch({
     headless: false,
     defaultViewport: false,
-    userDataDir: "./tmp",
+    // userDataDir: "./tmp",
     args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
+  // Enable request interception
+  // await page.setRequestInterception(true);
+  // page.setDefaultTimeout(0); // Set to 0 for no timeout
 
+  // // Intercept network requests
+  // page.on("request", (request) => {
+  //   const url = request.url();
+  //   // Block JavaScript files
+  //   if (url.includes("gstatic.com/recaptcha")) {
+  //     request.abort();
+  //     console.log("intercepted");
+  //   } else {
+  //     request.continue();
+  //   }
+  // });
   await page.goto(`${brandurl}`);
   if (firstRun == 0) {
     firstTimeRunning(page);
@@ -71,24 +83,28 @@ async function start(brandurl) {
 
       if (element) {
         // Selector found, do something
-        // console.log("Selector found!");
+        console.log("Selector found!");
       } else {
         // Selector not found, do something else
-        // console.log("Selector not found !");
+        console.log("Selector not found !");
+
+        //captcha get me to this case
+
         pageNumber = 2;
 
         break;
       }
     } catch (error) {
       // Handle the error when selector is not found
-      // console.log("Selector not found !");
+      console.log("Selector not found Error !");
       pageNumber = 2;
 
       break;
     }
 
     pageNumber++;
-    await page.waitForSelector(changeListing);
+    console.log(pageNumber);
+    // await page.waitForSelector(changeListing, { timeout: 5000 });
 
     if (firstRun !== 0) {
       listLayoutChange(page);
@@ -161,7 +177,6 @@ async function start(brandurl) {
             attributeValue
           )
         );
-        // data.push(values);
       } catch (error) {
         data.push([]);
         pageNumber = 2;
@@ -193,7 +208,8 @@ async function start(brandurl) {
     priceEGP,
     dimensionData.flat(),
     ratingData.flat(),
-    expireData
+    expireData,
+    brandId
   );
   const jsonData = JSON.stringify(productsData);
   // async function postProducts() {
@@ -203,8 +219,8 @@ async function start(brandurl) {
   // }
 
   // postProducts();
-  // await fs.writeFile("data.json", jsonData);
+  await fs.writeFile("21st.json", jsonData);
   await browser.close();
 }
-
+start("https://www.iherb.com/c/21st-century-health-care", 2);
 module.exports = { start };

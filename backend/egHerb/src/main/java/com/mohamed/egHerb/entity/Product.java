@@ -63,6 +63,9 @@ public class Product {
     @Column(name = "expiry_date")
     private String expiryDate;
 
+    @Column(name = "rating")
+    private int rating;
+
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
@@ -82,7 +85,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productUrl, String suggestedUse, String otherIngredients, String categoriesDescription, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category> categories) {
+    public Product(String productUrl,int rating, String suggestedUse, String otherIngredients, String categoriesDescription, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category> categories) {
         this.productUrl = productUrl;
         this.suggestedUse = suggestedUse;
         this.otherIngredients = otherIngredients;
@@ -97,6 +100,7 @@ public class Product {
         this.priceUs = priceUs;
         this.priceEg = priceEg;
         this.dimensions = dimensions;
+        this.rating = rating;
         this.expiryDate = expiryDate;
         this.brand = brand;
         this.modifiedAt = modifiedAt;
@@ -112,6 +116,7 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", productUrl='" + productUrl + '\'' +
+                ", rating='" + rating + '\'' +
                 ", suggestedUse='" + suggestedUse + '\'' +
                 ", otherIngredients='" + otherIngredients + '\'' +
                 ", categoriesDescription='" + categoriesDescription + '\'' +

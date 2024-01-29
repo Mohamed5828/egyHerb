@@ -11,7 +11,8 @@ import {
 import Pagination from "../components/Pagination";
 import DisplayContentMobile from "./DisplayContentMobile";
 import DisplayContentNormal from "./DisplayContentNormal";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const isMobile = window.innerWidth <= 599;
 
@@ -31,17 +32,6 @@ const subCategories = [
   { name: "Vitamin C", href: "#" },
 ];
 const filters = [
-  // {
-  //   id: "category",
-  //   name: "Category",
-  //   options: [
-  //     { value: "new-arrivals", label: "New Arrivals", checked: false },
-  //     { value: "sale", label: "Sale", checked: false },
-  //     { value: "travel", label: "Travel", checked: true },
-  //     { value: "organization", label: "Organization", checked: false },
-  //     { value: "accessories", label: "Accessories", checked: false },
-  //   ],
-  // },
   {
     id: "PackageQuantity",
     name: "Package Quantity",
@@ -63,6 +53,23 @@ function classNames(...classes) {
 export default function DisplayContainer({ type }) {
   const { categoryName, brandName } = useParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [activeSubCategory, setActiveSubCategory] = useState(null);
+  const handleClick = async (name) => {
+    try {
+      // Send a request to the backend to filter products based on the selected subcategory
+      const response = await axios.post("/query", {
+        subcategory: name,
+      });
+      setActiveSubCategory(name);
+
+      // Handle the response (e.g., update state to display filtered products)
+      console.log(response.data);
+      // Set the active subcategory
+    } catch (error) {
+      // Handle errors
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -120,9 +127,16 @@ export default function DisplayContainer({ type }) {
                     >
                       {subCategories.map((category) => (
                         <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                          <Link
+                            href={category.href}
+                            className={
+                              activeSubCategory == category.name
+                                ? "underline block px-2 py-3"
+                                : "block px-2 py-3"
+                            }
+                          >
                             {category.name}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -279,7 +293,16 @@ export default function DisplayContainer({ type }) {
                 >
                   {subCategories.map((category) => (
                     <li key={category.name}>
-                      <a href={category.href}>{category.name}</a>
+                      <Link
+                        onClick={() => handleClick(category.name)}
+                        className={
+                          activeSubCategory == category.name
+                            ? "underline block px-2 py-3"
+                            : "block px-2 py-3"
+                        }
+                      >
+                        {category.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

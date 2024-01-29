@@ -5,18 +5,18 @@ export const handleIncrement = (dispatch, productId) => {
     type: "UPDATE_QUANTITY",
     payload: {
       productId,
-      quantity: 1,
+      cartQuantity: 1,
     },
   });
 };
 
-export const handleDecrement = (dispatch, productId, quantity) => {
-  if (quantity > 1) {
+export const handleDecrement = (dispatch, productId, cartQuantity) => {
+  if (cartQuantity > 1) {
     dispatch({
       type: "UPDATE_QUANTITY",
       payload: {
         productId,
-        quantity: -1,
+        cartQuantity: -1,
       },
     });
   } else {
@@ -37,9 +37,12 @@ export const handleAddToCart = (dispatch, product) => {
   dispatch({
     type: "ADD_TO_CART",
     payload: {
-      productId: product.productId,
-      productName: product.productName,
-      quantity: 1,
+      image: product.image,
+      title: product.title,
+      quantity: product.quantity,
+      priceEgypt: parseInt(product.priceEgypt),
+      id: product.id,
+      cartQuantity: 1,
     },
   });
 };

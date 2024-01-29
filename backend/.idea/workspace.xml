@@ -2,30 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb6cc8a-5e7e-4755-8727-4096c6f82dfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/dao/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/entity/ProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/controllers/PaymobController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/entity/ProductCategory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/egHerb/src/main/java/com/mohamed/egHerb/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/components/blogPost.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/components/blogPost.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/components/card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/components/card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/components/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/components/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/components/navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/components/navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/css/components/blogPost.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/css/components/blogPost.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/css/components/card.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/css/components/card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/css/components/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/css/components/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/css/components/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/css/components/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/css/components/postSubmitted.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/css/components/postSubmitted.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/sassStyling/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/sassStyling/_colors.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Styling/sassStyling/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Styling/sassStyling/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/DisplayContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/DisplayContainer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Product.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../scrapping parent/scrappingcluster/helperFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/scrappingcluster/helperFunctions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/tools/CartContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/tools/CartContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/tools/CartHandlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/tools/CartHandlers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/tools/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/tools/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/tools/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/tools/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/ClusterScrapping.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/ClusterScrapping.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/helperFunctionsCluster.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/helperFunctionsCluster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/helperFunctionsMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/helperFunctionsMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/scrappingMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/scrappingMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/selectorCluster.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/selectorCluster.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/selectorMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/allScrapingFiles/selectorMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/scrapping brands/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/scrapping brands/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/scrapping/helperFunctionsMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/scrapping/helperFunctionsMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/scrapping/scrappingMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/scrapping/scrappingMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../scrapping parent/tools/dataPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/../scrapping parent/tools/dataPost.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

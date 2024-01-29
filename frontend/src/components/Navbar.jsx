@@ -29,7 +29,9 @@ function Navbar({ isCartOpen, toggleCart, isSideMenu, toggleSideMenu }) {
     <>
       <header className={`navbar `}>
         <div
-          className={`main-nav-container ${isSticky ? "sticky-navbar" : ""}`}
+          className={`main-nav-container ${
+            isSticky || isSideMenu ? "sticky-navbar" : ""
+          }`}
         >
           <h1 className="site-title">herbs</h1>
           <SearchBar />
