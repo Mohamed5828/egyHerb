@@ -384,23 +384,6 @@
   color: #fff;
 }
 
-.submit-btn {
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  border: 0;
-  padding: 0.75rem;
-  background-color: #cca8e9;
-  line-height: 1;
-  color: black;
-  transition: 0.25s;
-  margin: 0.75rem;
-}
-.submit-btn:hover, .submit-btn:focus {
-  border-color: #c3bef0;
-  color: #fff;
-}
-
 .draft-btn {
   text-decoration: none;
   cursor: pointer;
@@ -469,7 +452,7 @@
 }
 
 .login-btn,
-.submit-button {
+.submit-btn {
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
@@ -481,16 +464,22 @@
   transition: 0.25s;
   border-radius: 3px;
   color: #fff;
+  margin: 10px 0;
 }
 .login-btn:hover, .login-btn:focus,
-.submit-button:hover,
-.submit-button:focus {
+.submit-btn:hover,
+.submit-btn:focus {
   border-color: #c3bef0;
   color: #fff;
 }
 .login-btn:hover,
-.submit-button:hover {
+.submit-btn:hover {
   background-color: #45a049;
+}
+
+.submit-btn {
+  width: 212px;
+  height: 38px;
 }
 
 .register-btn {

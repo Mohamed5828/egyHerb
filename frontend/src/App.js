@@ -6,7 +6,7 @@ import { AuthProvider, RequireAuth } from "react-auth-kit";
 import DisplayContainer from "./layout/DisplayContainer";
 import SingleProductPage from "./layout/SingleProductPage";
 import Cart from "./components/Cart";
-import NotFound from "./layout/NotFound";
+import Registration from "./layout/Registration";
 import StripeApp from "./components/Stripe";
 import LoginPage from "./components/LoginPage";
 import { CartProvider } from "./tools/CartContext";
@@ -14,6 +14,7 @@ import Brands from "./layout/Brands";
 import NewHome from "./layout/NewHome";
 import InquiryForm from "./layout/Inquiry";
 import Sidemenu from "./components/Sidemenu";
+import RegInfo from "./components/RegInfo";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(true);
@@ -48,7 +49,8 @@ function App() {
             <Route path="/" element={<NewHome />} />
             <Route path="/products" element={<DisplayContainer />} />
             <Route path="/product/:id" element={<SingleProductPage />} />
-            <Route path="/registration" element={<NotFound />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/address" element={<RegInfo />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/brands" element={<Brands />} />
             <Route path="/inquiry" element={<InquiryForm />} />

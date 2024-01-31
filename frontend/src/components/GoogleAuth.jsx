@@ -32,7 +32,7 @@ function GoogleAuth() {
         expiresIn: 3600,
         tokenType: "Bearer",
       });
-      navigate("/dashboard");
+      navigate("/address");
     } catch (error) {
       console.error("Error signing in with custom token:", error);
     }

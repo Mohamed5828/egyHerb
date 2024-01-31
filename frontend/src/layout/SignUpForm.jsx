@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "../Styling/css/components/postSubmitted.css";
 import axios, { AxiosError } from "axios";
 import { useSignIn } from "react-auth-kit";
+import { redirect, useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -34,72 +37,70 @@ const SignUpForm = () => {
         tokenType: "Bearer",
         authState: { email: formData.email },
       });
+      navigate("/address");
     } catch (err) {
       if (err && err instanceof AxiosError) console.log(err);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <div className="form-container">
-        <input
-          className="form-input"
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          className="form-input"
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          className="form-input"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          className="form-input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />
-        <input
-          className={
-            formData.password != formData.passwordRe &&
-            formData.passwordRe != ""
-              ? "form-input password-warning"
-              : "form-input"
-          }
-          type="password"
-          name="password"
-          placeholder="Rewirte Password"
-          value={formData.passwordRe}
-          onChange={handleInputChange}
-          required
-        />{" "}
-        <p className="agreement">
-          By creating an account, you agree to Egherb's <i>Conditions of Use</i>{" "}
-          and <i>Privacy Notice</i>.
-        </p>
-        <button type="submit" className="submit-btn" onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
+    <form onSubmit={handleSubmit} className="form-container">
+      <input
+        className="form-input"
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        value={formData.firstName}
+        onChange={handleInputChange}
+        required
+      />
+      <input
+        className="form-input"
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        value={formData.lastName}
+        onChange={handleInputChange}
+        required
+      />
+      <input
+        className="form-input"
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleInputChange}
+        required
+      />
+      <input
+        className="form-input"
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleInputChange}
+        required
+      />
+      <input
+        className={
+          formData.password != formData.passwordRe && formData.passwordRe != ""
+            ? "form-input password-warning"
+            : "form-input"
+        }
+        type="password"
+        name="passwordRe"
+        placeholder="Rewirte Password"
+        value={formData.passwordRe}
+        onChange={handleInputChange}
+        required
+      />{" "}
+      <p className="agreement">
+        By creating an account, you agree to Egherb's <i>Conditions of Use</i>{" "}
+        and <i>Privacy Notice</i>.
+      </p>
+      <button type="submit" className="submit-btn" onClick={handleSubmit}>
+        Sign Up
+      </button>
     </form>
   );
 };
