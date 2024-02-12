@@ -63,6 +63,10 @@ function App() {
               element={<DisplayContainer type="brand" />}
             />
             <Route
+              path="/filter/:brandName/:categoryName"
+              element={<DisplayContainer type="brand" />}
+            />
+            <Route
               path="/payment"
               element={
                 <RequireAuth loginPath="/login">

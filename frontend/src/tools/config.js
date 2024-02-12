@@ -1,6 +1,4 @@
-let URL = "";
-process.env.NODE_ENV === "development"
-  ? (URL = "")
-  : (URL = "https://mohamed-blog-cutom.onrender.com");
-
-export default URL;
+let URL = "localhost:8080";
+let USERNAME = "ahmed@gmail.com";
+let PASSWORD = "12345";
+export { URL, USERNAME, PASSWORD };

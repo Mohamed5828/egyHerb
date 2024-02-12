@@ -68,16 +68,16 @@ function Navbar({ isCartOpen, toggleCart, isSideMenu, toggleSideMenu }) {
             <div>
               <ul className="category-ul">
                 <li className="category">
-                  <Link to="/category/vitamin-B">vitamin B</Link>
+                  <Link to="/category/Vitamin%20B">Vitamin B</Link>
                 </li>
                 <li className="category">
-                  <Link to="/category/vitamin-E">vitamin E</Link>
+                  <Link to="/category/Vitamin%20E">Vitamin E</Link>
                 </li>
                 <li className="category">
-                  <Link to="/category/vitamin-C">vitamin C</Link>
+                  <Link to="/category/Vitamin%20C">Vitamin C</Link>
                 </li>
                 <li className="category">
-                  <Link to="/category/vitamin-D">vitamin D</Link>
+                  <Link to="/category/Vitamin%20D">Vitamin D</Link>
                 </li>
                 <li className="category">
                   <Link to="/category/Zinc">Zinc</Link>

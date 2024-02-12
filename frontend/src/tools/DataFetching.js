@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-
+import { USERNAME, PASSWORD } from "./config";
+import { getToken } from "./SignIn";
+const axios = require("axios");
 export function useDataFetching(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -8,13 +10,16 @@ export function useDataFetching(url) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(url);
-        console.log(url);
-        const data = await response.json();
+        const token = await getToken(USERNAME, PASSWORD);
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         let reverseItems;
-        Array.isArray(data)
-          ? (reverseItems = data.reverse())
-          : (reverseItems = data);
+        Array.isArray(response)
+          ? (reverseItems = response.reverse())
+          : (reverseItems = response);
         console.log(reverseItems);
         setData(reverseItems);
         setLoading(false);

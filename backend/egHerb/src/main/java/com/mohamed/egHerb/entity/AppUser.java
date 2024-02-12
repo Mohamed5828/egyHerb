@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "user")
-public class AppUser implements UserDetails {
+public class AppUser extends AbstractEntityModel implements UserDetails {
 
 
 
@@ -38,13 +38,11 @@ public class AppUser implements UserDetails {
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL , orphanRemoval = true)
     private List<CartItem> cartItems;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" , cascade = CascadeType.ALL ,fetch = FetchType.LAZY, orphanRemoval = true)
     private List<UserAddress> userAddresses;
 
     @OneToMany(mappedBy = "user")

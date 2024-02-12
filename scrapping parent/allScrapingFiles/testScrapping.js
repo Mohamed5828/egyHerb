@@ -31,7 +31,7 @@ const {
 } = selector;
 
 let pageNumber = 1;
-let firstRun = 0;
+let firstRun = 1;
 let imageData = [];
 let titlesData = [];
 let weightData = [];
@@ -57,15 +57,6 @@ async function start(brandurl, currentName, brandId) {
   await page.goto(`${brandurl}`);
   page.setDefaultTimeout(0);
   /* First Run only to get the setting Done  */
-  if (firstRun == -1) {
-    await page.waitForNavigation();
-    setTimeout(() => {
-      page.waitForNavigation();
-    }, 500000);
-
-    console.log("1st");
-    firstRun = 0;
-  }
   if (firstRun == 0) {
     page.waitForNavigation();
 

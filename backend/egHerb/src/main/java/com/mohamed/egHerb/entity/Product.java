@@ -1,18 +1,21 @@
 package com.mohamed.egHerb.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product extends AbstractEntityModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -40,7 +43,7 @@ public class Product {
     private String title;
 
     @Column(name = "popularity")
-    private int popularity;
+    private Integer popularity;
 
     @Column(name = "description")
     private String description;
@@ -64,14 +67,11 @@ public class Product {
     private String expiryDate;
 
     @Column(name = "rating")
-    private int rating;
+    private Integer rating;
 
     @ManyToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
-
-    @Column(name = "modified_at",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private Timestamp modifiedAt;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -79,12 +79,13 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private List<Category> categories;
+    @JsonManagedReference
+    private Set<Category> categories = new HashSet<>();
 
     public Product() {
     }
 
-    public Product(String productUrl,int rating, String suggestedUse, String otherIngredients, String categoriesDescription, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Timestamp modifiedAt, List<Category> categories) {
+    public Product(String productUrl,int rating, String suggestedUse, String otherIngredients, String categoriesDescription, String firstImage, String secondImage, String title, int popularity, String description, String weight, String quantity, BigDecimal priceUs, BigDecimal priceEg, String dimensions, String expiryDate, Brand brand, Set<Category> categories) {
         this.productUrl = productUrl;
         this.suggestedUse = suggestedUse;
         this.otherIngredients = otherIngredients;
@@ -102,7 +103,6 @@ public class Product {
         this.rating = rating;
         this.expiryDate = expiryDate;
         this.brand = brand;
-        this.modifiedAt = modifiedAt;
         this.categories = categories;
     }
 
@@ -131,7 +131,6 @@ public class Product {
                 ", dimensions='" + dimensions + '\'' +
                 ", expiryDate='" + expiryDate + '\'' +
                 ", brand=" + brand +
-                ", modifiedAt=" + modifiedAt +
                 ", categories=" + categories +
                 '}';
     }

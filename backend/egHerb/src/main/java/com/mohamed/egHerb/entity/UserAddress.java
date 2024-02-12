@@ -21,8 +21,9 @@ public class UserAddress {
     @Column(name = "address_line1")
     private String addressLine1;
 
-    @Column(name = "city")
-    private String city;
+    @Enumerated(EnumType.STRING)
+    @Column (name = "city")
+    private Cities city;
 
     @Column(name = "area")
     private String area;
@@ -32,10 +33,9 @@ public class UserAddress {
 
     public UserAddress(){}
 
-    public UserAddress(AppUser userId, String addressLine1, String city, String area, int mobile) {
+    public UserAddress(AppUser userId, String addressLine1, Cities city, String area, int mobile) {
         this.user = userId;
         this.addressLine1 = addressLine1;
-
         this.city = city;
         this.area = area;
         this.mobile = mobile;

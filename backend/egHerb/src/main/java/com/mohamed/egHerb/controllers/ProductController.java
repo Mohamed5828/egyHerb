@@ -5,10 +5,9 @@ import com.mohamed.egHerb.entity.ProductRequest;
 import com.mohamed.egHerb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
@@ -36,6 +35,11 @@ public class ProductController {
             return ResponseEntity.badRequest().body("Failed to add product: " + e.getMessage());
         }
 
+    }
+    @GetMapping("/filter/{brand}/{category}")
+    public List<Product> getProductByBrandAndCategory(@PathVariable String brand
+                                                    ,@PathVariable String category){
+        return productService.getProductsByBrandAndCategory(brand, category);
     }
 
 }

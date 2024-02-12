@@ -1,6 +1,9 @@
+import React from 'react'
+
+function PasswordChange() {
 // LoginPage.js
 import React, { useState } from "react";
-import { useSignIn } from "../tools/SignIn"; // Import the custom hook
+import useSignIn from "../tools/SignIn"; // Import the custom hook
 import "./../Styling/css/components/login.css";
 import { Link } from "react-router-dom";
 
@@ -44,3 +47,5 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+export default PasswordChange

@@ -1,35 +1,43 @@
 import React, { useState } from "react";
 import "../Styling/css/components/postSubmitted.css";
+import { useDataFetching } from "../tools/DataFetching";
 
-function RegInfo() {
+function DetailsChange() {
+  const { data } = useDataFetching("getAddress");
   const [formData, setFormData] = useState({
-    mobile: "",
-    address: "",
-    city: "",
-    area: "",
+    mobile: data.mobile || "",
+    address: data.address || "",
+    city: data.city || "",
+    area: data.area || "",
   });
   let cities = [
-    "CAIRO",
-    "ALEXANDRIA",
-    "GIZA",
-    "LUXOR",
-    "ASWAN",
-    "SHARM_EL_SHEIKH",
-    "HURGHADA",
-    "PORT",
-    "SUEZ",
-    "ISMAILIA",
-    "MANSOURA",
-    "TANTA",
-    "ASSIUT",
-    "SOHAG",
-    "ZAGAZIG",
-    "DAMIETTA",
-    "MINYA",
-    "BENI",
-    "QENA",
-    "BANHA",
-    " KAFR_EL_SHEIKH",
+    "Cairo	",
+    "Alexandria",
+    "Giza",
+    "Shubra El-Kheima	",
+    "6th of October City	",
+    "Port Said",
+    "Suez",
+    "Luxor	",
+    "al-Mansura",
+    "El-Mahalla El-Kubra",
+    "Tanta",
+    "Asyut",
+    "Ismailia",
+    "Fayyum",
+    "Zagazig",
+    "Aswan",
+    "Damietta",
+    "Damanhur",
+    "al-Minya",
+    "Beni Suef",
+    "Qena",
+    "Sohag",
+    "Hurghada",
+    "Shibin El Kom",
+    "Banha",
+    "Kafr el-Sheikh",
+    "Arish",
   ];
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -91,11 +99,11 @@ function RegInfo() {
           required
         />
         <button type="submit" className="submit-btn">
-          Continue
+          Update
         </button>
       </form>
     </div>
   );
 }
 
-export default RegInfo;
+export default DetailsChange;

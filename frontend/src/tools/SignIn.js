@@ -3,7 +3,7 @@ import axios from "axios";
 import { useSignIn as useSignInKit } from "react-auth-kit";
 import { useNavigate } from "react-router-dom";
 
-const getToken = async (username, password) => {
+async function getToken(username, password) {
   const postData = {
     email: username,
     password: password,
@@ -14,13 +14,12 @@ const getToken = async (username, password) => {
       "http://localhost:8080/api/v1/auth/authenticate",
       postData
     );
-
     return response.data.token;
   } catch (error) {
     console.error("Error:", error);
     throw error;
   }
-};
+}
 
 const authenticateUser = async (token, username) => {
   return {
@@ -50,4 +49,4 @@ const useSignIn = () => {
   return signInAndRedirect;
 };
 
-export default useSignIn;
+export { getToken, useSignIn };

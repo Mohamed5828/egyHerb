@@ -93,7 +93,8 @@ let x = [
 
 async function postProducts() {
   for (const product of x) {
-    await postProduct(product, dbServer);
+    await postProduct(product, 
+      );
   }
 }
 postProducts();

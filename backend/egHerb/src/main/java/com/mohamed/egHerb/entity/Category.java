@@ -1,10 +1,13 @@
 package com.mohamed.egHerb.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,7 +23,8 @@ public class Category {
     private String categoryName;
 
     @ManyToMany(mappedBy = "categories")
-    private List<Product> products;
+    @JsonBackReference
+    private Set<Product> products = new HashSet<>();
 
     public Category() {
     }

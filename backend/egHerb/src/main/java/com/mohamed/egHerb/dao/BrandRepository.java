@@ -1,6 +1,7 @@
 package com.mohamed.egHerb.dao;
 
 import com.mohamed.egHerb.entity.Brand;
+import com.mohamed.egHerb.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,6 +14,9 @@ public interface BrandRepository extends JpaRepository<Brand, Integer> {
     List<String> getAllBrandNames();
     @Query("SELECT b.brandUrl FROM Brand b")
     List<String> getAllBrandUrls();
+
+    Brand getBrandByName(String name);
+    List<Product> getProductsByName(String name);
 }
 
 

@@ -11,8 +11,8 @@ import {
 import Pagination from "../components/Pagination";
 import DisplayContentMobile from "./DisplayContentMobile";
 import DisplayContentNormal from "./DisplayContentNormal";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { URL } from "../tools/config";
 
 const isMobile = window.innerWidth <= 599;
 
@@ -28,7 +28,7 @@ const subCategories = [
   { name: "Vitamin B", href: "#" },
   { name: "Vitamin D", href: "#" },
   { name: "Multivitamins", href: "#" },
-  { name: "Omega-3 Fish Oil", href: "#" },
+  { name: "Omega-3", href: "#" },
   { name: "Vitamin C", href: "#" },
 ];
 const filters = [
@@ -53,23 +53,20 @@ function classNames(...classes) {
 export default function DisplayContainer({ type }) {
   const { categoryName, brandName } = useParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [activeSubCategory, setActiveSubCategory] = useState(null);
+  const [activeSubCategory, setActiveSubCategory] = useState(categoryName);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  //i need to filter the category of that brand not a new data
   const handleClick = async (name) => {
     try {
-      // Send a request to the backend to filter products based on the selected subcategory
-      const response = await axios.post("/query", {
-        subcategory: name,
-      });
       setActiveSubCategory(name);
-
-      // Handle the response (e.g., update state to display filtered products)
-      console.log(response.data);
-      // Set the active subcategory
     } catch (error) {
       // Handle errors
       console.error("Error:", error);
     }
   };
+  const dataURL = `${URL}${location.pathname}`;
 
   return (
     <div className="bg-white">
@@ -209,11 +206,10 @@ export default function DisplayContainer({ type }) {
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">
               {type === "category"
-                ? `Category : ${categoryName}`
-                : `Brand
-              : ${brandName}`}
+                ? `Category: ${categoryName}`
+                : `Brand: ${brandName}`}
             </h1>
-            <input type="search" placeholder="Search Within" />
+
             <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
@@ -295,6 +291,11 @@ export default function DisplayContainer({ type }) {
                     <li key={category.name}>
                       <Link
                         onClick={() => handleClick(category.name)}
+                        to={
+                          brandName
+                            ? `/filter/${brandName}/${category.name} `
+                            : `/category/${category.name}`
+                        }
                         className={
                           activeSubCategory == category.name
                             ? "underline block px-2 py-3"
@@ -369,7 +370,11 @@ export default function DisplayContainer({ type }) {
               {/* Product grid */}
               <div className="lg:col-span-3">
                 {" "}
-                {isMobile ? <DisplayContentMobile /> : <DisplayContentNormal />}
+                {isMobile ? (
+                  <DisplayContentMobile url={dataURL} />
+                ) : (
+                  <DisplayContentNormal url={dataURL} />
+                )}
               </div>
             </div>
             <Pagination />
