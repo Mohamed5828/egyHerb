@@ -5,10 +5,10 @@ import { useDataFetching } from "../tools/DataFetching";
 function DetailsChange() {
   const { data } = useDataFetching("getAddress");
   const [formData, setFormData] = useState({
-    mobile: data.mobile || "",
-    address: data.address || "",
-    city: data.city || "",
-    area: data.area || "",
+    mobile: data?.mobile || "",
+    address: data?.address || "",
+    city: data?.city || "",
+    area: data?.area || "",
   });
   let cities = [
     "Cairo	",
@@ -64,15 +64,6 @@ function DetailsChange() {
           onChange={handleInputChange}
           required
         />
-        <input
-          className="form-input"
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={formData.address}
-          onChange={handleInputChange}
-          required
-        />{" "}
         <select
           className="form-input"
           name="city"
@@ -98,6 +89,15 @@ function DetailsChange() {
           onChange={handleInputChange}
           required
         />
+        <input
+          className="form-input"
+          type="text"
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleInputChange}
+          required
+        />{" "}
         <button type="submit" className="submit-btn">
           Update
         </button>

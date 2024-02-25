@@ -1,21 +1,21 @@
-@import "../sassStyling/colors";
-@import "../sassStyling/variables";
-@import "../sassStyling/breakpoints";
+// @import "../sassStyling/colors";
+// @import "../sassStyling/variables";
+// @import "../sassStyling/breakpoints";
 
-.write-container {
-  @extend %container;
-  background-color: $backgroundPrimary;
-  display: flex;
-  justify-content: center;
-}
-.editor {
-  background-color: white;
-}
-.title-input {
-  @extend %input-field;
-  margin: $base-margin 4px;
-}
-.description-input {
-  @extend %input-field;
-  margin: $base-margin 4px;
-}
+// .write-container {
+//   @extend %container;
+//   background-color: $backgroundPrimary;
+//   display: flex;
+//   justify-content: center;
+// }
+// .editor {
+//   background-color: white;
+// }
+// .title-input {
+//   @extend %input-field;
+//   margin: $base-margin 4px;
+// }
+// .description-input {
+//   @extend %input-field;
+//   margin: $base-margin 4px;
+// }

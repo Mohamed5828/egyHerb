@@ -4,11 +4,15 @@ import PasswordChange from "./PasswordChange";
 import ProfileSidebar from "../components/ProfileSidebar";
 import MyOrders from "../components/MyOrders";
 
-function Profile() {
+function ProfileMobile() {
   const [activeTab, setActiveTab] = useState("myOrder");
   return (
     <div>
-      <ProfileSidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <ProfileSidebar
+        isMobile={true}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
       {activeTab === "myOrder" && (
         <div className="my-orders-section">
           <MyOrders />
@@ -31,5 +35,4 @@ function Profile() {
     </div>
   );
 }
-
-export default Profile;
+export default ProfileMobile;

@@ -1,51 +1,57 @@
-import React from 'react'
-
-function PasswordChange() {
-// LoginPage.js
 import React, { useState } from "react";
-import useSignIn from "../tools/SignIn"; // Import the custom hook
 import "./../Styling/css/components/login.css";
 import { Link } from "react-router-dom";
 
-function LoginPage() {
-  const signIn = useSignIn(); // Use the custom hook
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function PasswordChange() {
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
 
-  const handleLogin = () => {
-    signIn(username, password);
+  const handlePasswordChange = () => {
+    if (newPassword !== confirmedPassword) {
+      alert("Confirmed password does not match the new password");
+      return;
+    }
+    // Handle password change logic here
   };
 
   return (
     <div className="login-container">
       <form>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="current-password">Current Password</label>
         <input
           type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          id="current-password"
+          value={currentPassword}
+          onChange={(e) => setCurrentPassword(e.target.value)}
         />
 
-        <button className="login-btn" type="button" onClick={handleLogin}>
-          Login
+        <label htmlFor="new-password">New Password</label>
+        <input
+          type="password"
+          id="new-password"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+        />
+
+        <label htmlFor="confirm-password">Confirm New Password</label>
+        <input
+          type="password"
+          id="confirm-password"
+          value={confirmedPassword}
+          onChange={(e) => setConfirmedPassword(e.target.value)}
+        />
+
+        <button
+          className="login-btn"
+          type="button"
+          onClick={handlePasswordChange}
+        >
+          Change Password
         </button>
       </form>
-      <Link className="register-btn" to="/registration">
-        New User
-      </Link>
     </div>
   );
 }
 
-export default LoginPage;
-
-export default PasswordChange
+export default PasswordChange;

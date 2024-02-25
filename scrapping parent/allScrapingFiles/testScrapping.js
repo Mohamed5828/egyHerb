@@ -27,11 +27,11 @@ const {
   dimensionSelector,
   ratingSelector,
   URLSelector,
-  error,
+  outOfStock,
 } = selector;
 
 let pageNumber = 1;
-let firstRun = 1;
+let firstRun = 0;
 let imageData = [];
 let titlesData = [];
 let weightData = [];
@@ -49,17 +49,25 @@ let preData = [];
 async function start(brandurl, currentName, brandId) {
   const browser = await puppeteer.launch({
     headless: false,
-    defaultViewport: false,
-    userDataDir: "./tmp",
-    args: ["--no-sandbox"],
+    // defaultViewport: false,
+    // userDataDir: "./tmp",
+    // args: ["--no-sandbox"],
+    args: ["--incognito"],
   });
-  const page = await browser.newPage();
+  // const page = await browser.newPage();
+
+  const context = await browser.createIncognitoBrowserContext();
+  const page = await context.newPage();
+
   await page.goto(`${brandurl}`);
   page.setDefaultTimeout(0);
   /* First Run only to get the setting Done  */
   if (firstRun == 0) {
     page.waitForNavigation();
-
+    if (!langChangeBtn) {
+      page.waitForNavigation();
+      firstRun--;
+    }
     page.click(langChangeBtn);
     await page.waitForSelector(modal);
     page.click(destinationCountry);
@@ -73,7 +81,7 @@ async function start(brandurl, currentName, brandId) {
       page.click(saveBtn);
     }, 5000),
       console.log("all done");
-    firstRun = 1;
+    firstRun++;
     await page.waitForNavigation();
   }
 
@@ -81,7 +89,10 @@ async function start(brandurl, currentName, brandId) {
     try {
       const element = await page.$(notFound);
       if (!element) {
+        // if (!element || outOfStock) {
         // Selector found, do something
+        // console.log(outOfStock);
+        console.log(element);
         console.log("Selector found!");
       } else {
         // Selector not found, do something else

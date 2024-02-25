@@ -15,6 +15,7 @@ import NewHome from "./layout/NewHome";
 import InquiryForm from "./layout/Inquiry";
 import Sidemenu from "./components/Sidemenu";
 import RegInfo from "./components/RegInfo";
+import Profile from "./layout/Profile";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(true);
@@ -52,6 +53,7 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/address" element={<RegInfo />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/brands" element={<Brands />} />
             <Route path="/inquiry" element={<InquiryForm />} />
             <Route

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import herbData from "../tools/data.json";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ function DisplayContentNormal({ queryURL }) {
   const { dispatch } = useCart();
   console.log(queryURL);
   const { data, loading, error } = useDataFetching(queryURL);
-  useEffect(() => {}, [queryURL]);
 
   return (
     <div className={!loading ? "loader" : ""}>
